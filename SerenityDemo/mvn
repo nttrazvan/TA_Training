@@ -1,0 +1,39 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------------< tf_automation:ateam >-------------------------
+[INFO] Building Test Factory's Automation Framework 1.0
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ ateam ---
+[INFO] Deleting D:\CC\ccew-aut\ccew-automation\target
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ ateam ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory D:\CC\ccew-aut\ccew-automation\src\main\resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.6.0:compile (default-compile) @ ateam ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 97 source files to D:\CC\ccew-aut\ccew-automation\target\classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ ateam ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 7 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.6.0:testCompile (default-testCompile) @ ateam ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 31 source files to D:\CC\ccew-aut\ccew-automation\target\test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ ateam ---
+[INFO] Tests are skipped.
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ ateam ---
+[INFO] Building jar: D:\CC\ccew-aut\ccew-automation\target\ateam-1.0.jar
+[INFO] 
+[INFO] --- maven-failsafe-plugin:2.19.1:integration-test (default) @ ateam ---
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running BankAccountsStory
+windows 7
+Terminate batch job (Y/N)? 
