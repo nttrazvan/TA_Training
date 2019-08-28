@@ -1,6 +1,6 @@
 ## Cucumber Training
 
-This document is written to give a helping hand over setting up and running the Charity Commission Serenity Web Automation
+This document is written to give a helping hand over setting up and running Cucumber BDD Web Automation Demo
 
 1. At first run, please run the command "mvn clean install" to fetch all dependencies.
 
