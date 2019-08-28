@@ -1,4 +1,4 @@
-## Charity Commission - Serenity Web Automation
+## Serenity Automation
 
 This document is written to give a helping hand over setting up and running the Serenity Web Automation
 
