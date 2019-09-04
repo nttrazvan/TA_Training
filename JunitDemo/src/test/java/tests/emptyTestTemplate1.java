@@ -8,7 +8,9 @@ import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 import utils.DriverBuilder;
 import utils.Helpers;
+
 import java.io.IOException;
+
 import static utils.DriverBuilder.getDriver;
 
 @RunWith(JUnit4.class)
@@ -17,10 +19,9 @@ public class emptyTestTemplate1 {
     @Before
     public void beforeMethod() throws IOException {
         System.out.println("This method is called before each test executes");
-        Helpers.killDriverProcess();
         Helpers.getPropValues();
         DriverBuilder.setDriver();
-        DriverBuilder.setDriverDefaultWait(20);
+        DriverBuilder.setDriverDefaultWait(10);
         getDriver.get(System.getProperty("default.url"));
         getDriver.manage().window().maximize();
     }
@@ -32,6 +33,6 @@ public class emptyTestTemplate1 {
 
     @After
     public void afterMethod() throws IOException {
-        getDriver.quit();
+        DriverBuilder.kill();
     }
 }

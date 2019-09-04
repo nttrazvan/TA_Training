@@ -22,18 +22,17 @@ public class emptyTestTemplate2 {
     @Before
     public void beforeMethod() throws IOException {
         System.out.println("This method is called before each test executes");
-        Helpers.killDriverProcess();
         Helpers.getPropValues();
         DriverBuilder.setDriver();
-        DriverBuilder.setDriverDefaultWait(7);
+        DriverBuilder.setDriverDefaultWait(10);
         getDriver.get(System.getProperty("default.url"));
         getDriver.manage().window().maximize();
     }
 
     @Test
     public void verifySearchResultTest01() throws InterruptedException {
-        EmptyTemplatePage.searchField.sendKeys(testDataContainer.summerString);
-        EmptyTemplatePage.searchField.submit();
+        EmptyTemplatePage.searchField().sendKeys(testDataContainer.summerString);
+        EmptyTemplatePage.searchField().submit();
         System.out.println("The number of search results titles is: " + EmptyTemplatePage.results().size());
         boolean exitResult = false;
         int index = 0;
@@ -51,8 +50,8 @@ public class emptyTestTemplate2 {
 
     @Test
     public void verifySearchResultTest02() {
-        EmptyTemplatePage.searchField.sendKeys(testDataContainer.summerString);
-        EmptyTemplatePage.searchField.submit();
+        EmptyTemplatePage.searchField().sendKeys(testDataContainer.summerString);
+        EmptyTemplatePage.searchField().submit();
         System.out.println("The number of search results titles is: " + EmptyTemplatePage.results().size());
         boolean exitResult = false;
         int index = 0;
@@ -72,6 +71,6 @@ public class emptyTestTemplate2 {
 
     @After
     public void afterMethod() throws IOException {
-        getDriver.close();
+        DriverBuilder.kill();
     }
 }
