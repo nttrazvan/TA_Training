@@ -5,6 +5,7 @@ import net.thucydides.core.pages.Pages;
 import net.thucydides.core.util.EnvironmentVariables;
 import net.thucydides.core.util.SystemEnvironmentVariables;
 import net.thucydides.core.webdriver.WebDriverFacade;
+import org.junit.Assert;
 import org.openqa.selenium.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -80,5 +81,13 @@ public class DriverUtils extends PageObject {
 
     public int getYPositionOflement(WebElement element) {
         return element.getLocation().y;
+    }
+
+    public void assertButtonContainsText(WebElement element){
+        boolean exitResult = false;
+        if(element.getAttribute("textContent").replaceAll("[^A-Za-z]+", "").length() != 0){
+            exitResult = true;
+        }
+        Assert.assertTrue("The button does not contain text", exitResult);
     }
 }
