@@ -2,12 +2,14 @@ package tests;
 
 import org.assertj.core.api.SoftAssertions;
 import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.BeforeEach;
 import utils.DriverBuilder;
 import utils.Helpers;
+
 import java.io.IOException;
+
 import static utils.DriverBuilder.getDriver;
 
 public class emptyTestTemplate1 {
@@ -24,7 +26,7 @@ public class emptyTestTemplate1 {
     }
 
     @Test
-    @Tag(value = "test1")
+    @Tag("test1")
     public void launchBrowserTest(){
         softly.assertThat(getDriver.getTitle()).contains("Google").as("This message will be shown when the assertion fails");
         softly.assertAll();

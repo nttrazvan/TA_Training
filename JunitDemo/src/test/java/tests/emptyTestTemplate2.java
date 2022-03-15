@@ -1,25 +1,21 @@
 package tests;
 
 import Pages.EmptyTemplatePage;
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.JUnit4;
+import org.assertj.core.api.SoftAssertions;
+import org.junit.jupiter.api.*;
 import org.openqa.selenium.WebElement;
 import testData.testDataContainer;
 import utils.DriverBuilder;
 import utils.Helpers;
-
 import java.io.IOException;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static utils.DriverBuilder.getDriver;
 
-@RunWith(JUnit4.class)
 public class emptyTestTemplate2 {
+    SoftAssertions softly = new SoftAssertions();
 
-    @Before
+    @BeforeEach
     public void beforeMethod() throws IOException {
         System.out.println("This method is called before each test executes");
         Helpers.getPropValues();
@@ -27,49 +23,39 @@ public class emptyTestTemplate2 {
         DriverBuilder.setDriverDefaultWait(10);
         getDriver.get(System.getProperty("default.url"));
         getDriver.manage().window().maximize();
+        EmptyTemplatePage.agreeCookiePolicyBtn().click();
     }
 
     @Test
+    @Tag("test2")
     public void verifySearchResultTest01() throws InterruptedException {
         EmptyTemplatePage.searchField().sendKeys(testDataContainer.summerString);
         EmptyTemplatePage.searchField().submit();
         System.out.println("The number of search results titles is: " + EmptyTemplatePage.results().size());
-        boolean exitResult = false;
-        int index = 0;
         for (WebElement element : EmptyTemplatePage.results()) {
             int i = EmptyTemplatePage.results().indexOf(element);
-            if (element.getAttribute("textContent").toLowerCase().contains(testDataContainer.summerString)) {
-                System.out.println("The title numbered: " + i + " contains the string: " + testDataContainer.summerString);
-                exitResult = true;
-            } else {
-                System.out.println("The title numbered: " + i + " does not contain the string: " + testDataContainer.summerString);
-            }
+            softly.assertThat(element.getAttribute("textContent").toLowerCase()).contains(testDataContainer.summerString)
+                    .as("The title numbered: " + i + " does not contain the string: " + testDataContainer.summerString);
         }
-        Assert.assertTrue("This message will be thrown when the test does not pass in the console", exitResult);
+        softly.assertAll();
     }
 
     @Test
+    @Tag("test2")
     public void verifySearchResultTest02() {
         EmptyTemplatePage.searchField().sendKeys(testDataContainer.summerString);
         EmptyTemplatePage.searchField().submit();
         System.out.println("The number of search results titles is: " + EmptyTemplatePage.results().size());
-        boolean exitResult = false;
-        int index = 0;
         for (WebElement element : EmptyTemplatePage.results()) {
             int i = EmptyTemplatePage.results().indexOf(element);
             // Intentionally set value to winterString to fail
-            if (element.getAttribute("textContent").toLowerCase().contains(testDataContainer.winterString)) {
-                System.out.println("The title numbered: " + i + " contains the string: " + testDataContainer.summerString);
-                exitResult = true;
-            } else {
-                System.out.println("The title numbered: " + i + " does not contain the string: " + testDataContainer.summerString);
-            }
+            softly.assertThat(element.getAttribute("textContent").toLowerCase()).contains(testDataContainer.winterString)
+                    .as("The title numbered: " + i + " does not contain the string: " + testDataContainer.summerString);
         }
-        Assert.assertTrue("This message will be thrown when the test does not pass in the console",
-                exitResult);
+        softly.assertAll();
     }
 
-    @After
+    @AfterEach
     public void afterMethod() throws IOException {
         DriverBuilder.kill();
     }

@@ -4,15 +4,15 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
-
+import org.openqa.selenium.support.ui.WebDriverWait;
 import java.io.IOException;
-import java.util.concurrent.TimeUnit;
+import java.time.Duration;
 
 public class DriverBuilder {
     public static WebDriver getDriver;
 
     public static void setDriverDefaultWait(int seconds){
-        getDriver.manage().timeouts().implicitlyWait(seconds, TimeUnit.SECONDS);
+        new WebDriverWait(getDriver, Duration.ofSeconds(seconds));
     }
 
     public static WebDriver setDriver() {
