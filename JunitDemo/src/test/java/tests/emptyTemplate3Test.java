@@ -7,7 +7,7 @@ import java.io.IOException;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 
-public class emptyTestTemplate3 {
+public class emptyTemplate3Test {
     private final int var1 = 0;
     private final int var2 = 1;
 
@@ -18,13 +18,13 @@ public class emptyTestTemplate3 {
     }
 
     @Test
-    @Tag("test3")
+    @Tag(value = "test3")
     public void successTest(){
         assertNotEquals(var1, var2,"This message will be thrown if the assertion fails");
     }
 
     @Test
-    @Tag("test3")
+    @Tag(value = "test3")
     public void failTest(){
         assertEquals(var1, var2, "This message will be thrown if the assertion fails");
     }

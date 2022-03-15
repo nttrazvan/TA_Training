@@ -9,10 +9,9 @@ import utils.DriverBuilder;
 import utils.Helpers;
 import java.io.IOException;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
 import static utils.DriverBuilder.getDriver;
 
-public class emptyTestTemplate2 {
+public class emptyTemplate2Test {
     SoftAssertions softly = new SoftAssertions();
 
     @BeforeEach
@@ -27,8 +26,8 @@ public class emptyTestTemplate2 {
     }
 
     @Test
-    @Tag("test2")
-    public void verifySearchResultTest01() throws InterruptedException {
+    @Tag(value = "test2")
+    public void verifySearchResultTest01() {
         EmptyTemplatePage.searchField().sendKeys(testDataContainer.summerString);
         EmptyTemplatePage.searchField().submit();
         System.out.println("The number of search results titles is: " + EmptyTemplatePage.results().size());
@@ -41,7 +40,7 @@ public class emptyTestTemplate2 {
     }
 
     @Test
-    @Tag("test2")
+    @Tag(value = "test2")
     public void verifySearchResultTest02() {
         EmptyTemplatePage.searchField().sendKeys(testDataContainer.summerString);
         EmptyTemplatePage.searchField().submit();
