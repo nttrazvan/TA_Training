@@ -1,4 +1,4 @@
-package serenity_demo.charity;
+package serenity_demo;
 
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.*;
@@ -9,7 +9,6 @@ import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
 import org.openqa.selenium.WebDriver;
 import serenity_demo.steps.EmptyTemplateSteps;
-
 
 @Story(EmptyTemplateStory.class)
 @RunWith(SerenityRunner.class)
@@ -23,10 +22,10 @@ public class EmptyTemplateStory {
     @Steps
     private EmptyTemplateSteps emptyTemplateSteps;
 
-
     @Before
     public void init() {
         emptyTemplateSteps.open("http://www.google.com/en");
+        emptyTemplateSteps.dismissPrivacyPolicy();
     }
 
     @Test

@@ -14,6 +14,9 @@ public class EmptyTemplatePage extends PageObject {
     @FindBy(css = "input[title='Search']")
     public WebElementFacade searchField;
 
-    @FindBy(css = "div.rc h3")
+    @FindBy(xpath = "//div //a/h3")
     public List<WebElementFacade> resultsTitles;
+
+    @FindBy(xpath = "//*[contains(text(),'I agree')]")
+    public WebElementFacade acceptPrivacyBtn;
 }
