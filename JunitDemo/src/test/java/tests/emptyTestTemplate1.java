@@ -1,22 +1,19 @@
 package tests;
 
-import org.junit.After;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.junit.runners.JUnit4;
+import org.assertj.core.api.SoftAssertions;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.Tag;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.BeforeEach;
 import utils.DriverBuilder;
 import utils.Helpers;
-
 import java.io.IOException;
-
 import static utils.DriverBuilder.getDriver;
 
-@RunWith(JUnit4.class)
 public class emptyTestTemplate1 {
+    SoftAssertions softly = new SoftAssertions();
 
-    @Before
+    @BeforeEach
     public void beforeMethod() throws IOException {
         System.out.println("This method is called before each test executes");
         Helpers.getPropValues();
@@ -27,12 +24,15 @@ public class emptyTestTemplate1 {
     }
 
     @Test
+    @Tag(value = "test1")
     public void launchBrowserTest(){
-        Assert.assertTrue("This message will be shown when the assertion fails", getDriver.getTitle().contains("Google"));
+        softly.assertThat(getDriver.getTitle()).contains("Google").as("This message will be shown when the assertion fails");
+        softly.assertAll();
     }
 
-    @After
-    public void afterMethod() throws IOException {
+    @AfterEach
+    public void afterMethod() {
+        System.out.println("This method is called after each test executes");
         DriverBuilder.kill();
     }
 }
