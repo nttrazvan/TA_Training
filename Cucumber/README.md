@@ -36,3 +36,4 @@ We highly recommend downloading the latest Drivers available from the Web as the
 
     - Click on JUnit from the left-side menu
         - For VM Options fill with the following: -ea -Dwebdriver.driver=chrome -Ddefault.url=https://www.virginmedia.com -Dwebdriver.chrome.driver=./src/test/resources/Drivers/chromedriver -Denvironment.settings=web -DtestEnv=prod
+* Add the tag @Web for the scenarios that should run through a browser
