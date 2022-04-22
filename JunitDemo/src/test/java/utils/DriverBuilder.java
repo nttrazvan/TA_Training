@@ -8,7 +8,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.io.IOException;
 import java.time.Duration;
 
-public class DriverBuilder {
+public class  DriverBuilder {
     public static WebDriver getDriver;
 
     public static void setDriverDefaultWait(int seconds){
