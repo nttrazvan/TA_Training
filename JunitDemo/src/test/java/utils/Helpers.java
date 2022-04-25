@@ -21,6 +21,7 @@ public class Helpers {
             FileInputStream ip= new FileInputStream("./config.properties");
             prop.load(ip);
             System.setProperty("default.url",prop.getProperty("default.url"));
+            System.setProperty("emag.url",prop.getProperty("emag.url"));
             System.setProperty("webdriver.driver",prop.getProperty("webdriver.driver"));
             System.setProperty("webdriver.timeouts.implicitlywait",prop.getProperty("webdriver.timeouts.implicitlywait"));
             System.setProperty("webdriver.chrome.driver",prop.getProperty("webdriver.chrome.driver"));
