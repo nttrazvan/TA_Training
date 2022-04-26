@@ -14,7 +14,7 @@ import static utils.DriverBuilder.getDriver;
 public class Helpers {
     private static InputStream inputStream;
 
-    public static void getPropValues() throws IOException {
+    public static void  getPropValues() throws IOException {
         try {
             System.out.println("DEBUG: Attempting to fetch the properties");
             Properties prop=new Properties();
