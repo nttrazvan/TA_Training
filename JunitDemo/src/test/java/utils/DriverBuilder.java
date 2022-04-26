@@ -12,7 +12,7 @@ public class DriverBuilder {
     public static WebDriver getDriver;
 
     public static void setDriverDefaultWait(int seconds){
-        new WebDriverWait(getDriver, Duration.ofSeconds(seconds));
+        getDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(seconds));
     }
 
     public static WebDriver setDriver() {
