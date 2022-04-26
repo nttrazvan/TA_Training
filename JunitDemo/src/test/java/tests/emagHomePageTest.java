@@ -32,16 +32,17 @@ public class emagHomePageTest {
 
     @Test
     @Tag(value = "emagHome")
-    public void launchBrowserTest(){
+    public void launchBrowserTest() {
         softly.assertThat(getDriver.getTitle()).contains("eMAG.ro - Căutarea nu se oprește niciodată");
         softly.assertAll();
     }
 
     @Test
     @Tag(value = "emagHome")
-    public void checkCart(){
+    public void checkCart() throws InterruptedException {
         Actions action = new Actions(getDriver);
         action.moveToElement(EmagHomePage.cartBtn()).build().perform();
+        Thread.sleep(500);
         softly.assertThat(EmagHomePage.navbarCartDropdownMessage().getAttribute("textContent")).contains("Nu ai niciun produs în coș");
         softly.assertAll();
     }

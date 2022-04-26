@@ -12,11 +12,14 @@ public class EmagHomePage {
     }
 
     public static WebElement cartBtn() {
-        return getDriver.findElement(By.cssSelector("#my_cart"));
+        return getDriver.findElement(By.id("my_cart"));
     }
 
     public static WebElement navbarCartDropdownMessage() {
         return getDriver.findElement(By.cssSelector(".navbar-cart-dropdown p"));
     }
 
+    public static WebElement searchField() {
+        return getDriver.findElement(By.id("searchboxTrigger"));
+    }
 }
