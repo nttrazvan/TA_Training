@@ -5,6 +5,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
+import org.openqa.selenium.By;
 import utils.DriverBuilder;
 import utils.Helpers;
 
@@ -12,7 +13,7 @@ import java.io.IOException;
 
 import static utils.DriverBuilder.getDriver;
 
-public class no10LaunchBrowser {
+public class no11FindSubmitButtonTest {
     SoftAssertions softly = new SoftAssertions();
 
     @BeforeEach
@@ -26,9 +27,9 @@ public class no10LaunchBrowser {
     }
 
     @Test
-    @Tag(value = "launchBrowser")
-    public void launchBrowserTest(){
-        softly.assertThat(getDriver.getTitle()).contains("Anmelden").as("This message will be shown when the assertion fails");
+    @Tag(value = "loginFormValidation")
+    public void findSubmitButtonTest(){
+        softly.assertThat(getDriver.findElement(By.tagName("button"))).as("This message will be shown when the assertion fails");
         softly.assertAll();
     }
 

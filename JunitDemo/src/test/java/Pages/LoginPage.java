@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 
 import static utils.DriverBuilder.getDriver;
 
-public class PageTemplate {
+public class LoginPage {
 
 
 

@@ -48,6 +48,6 @@ public class Helpers {
 
     public static void waitForElement(int seconds, WebElement element){
         WebDriverWait wait = new WebDriverWait(getDriver, seconds);
-        wait.until(ExpectedConditions.visibilityOf(element));
+        wait.until(ExpectedConditions.elementToBeClickable(element));
     }
 }

@@ -1,12 +1,12 @@
 package tests;
 
-import Pages.PageTemplate;
+import Pages.LoginPage;
 import org.assertj.core.api.SoftAssertions;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
-import testData.testData;
+import testData.testDataTREG;
 import utils.DriverBuilder;
 import utils.Helpers;
 
@@ -14,7 +14,7 @@ import java.io.IOException;
 
 import static utils.DriverBuilder.getDriver;
 
-public class no20EnterCredentials {
+public class no20EnterCredentialsTest {
     SoftAssertions softly = new SoftAssertions();
 
     @BeforeEach
@@ -30,8 +30,8 @@ public class no20EnterCredentials {
     @Test
     @Tag(value = "enterCredentials")
     public void enterCredentialsTest() {
-        PageTemplate.enterUsername().sendKeys(testData.username);
-        PageTemplate.enterPassword().sendKeys(testData.password);
+        LoginPage.enterUsername().sendKeys(testDataTREG.username);
+        LoginPage.enterPassword().sendKeys(testDataTREG.password);
     }
 
 
