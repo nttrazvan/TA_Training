@@ -96,12 +96,75 @@
     <profiles>
         <profile>
             <id>tests</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-failsafe-plugin</artifactId>
+                        <version>3.0.0-M5</version>
+                        <configuration>
+                            <groups>${tests}</groups>
+                            <includes>
+                                <include>**/tests/*.java</include>
+                            </includes>
+                            <excludes>
+                                <exclude>**/suites/*.java</exclude>
+                            </excludes>
+                            <argLine>-Xmx512m</argLine>
+                            <systemPropertyVariables>
+                                <properties>./config.properties</properties>
+                            </systemPropertyVariables>
+                            <excludes>
+                            </excludes>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <goals>
+                                    <goal>integration-test</goal>
+                                    <goal>verify</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
             <properties>
                 <maven.exclude>false</maven.exclude>
             </properties>
         </profile>
         <profile>
             <id>suites</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-failsafe-plugin</artifactId>
+                        <version>3.0.0-M5</version>
+                        <configuration>
+                            <includes>
+                                <include>**/${tests}.class</include>
+                            </includes>
+                            <excludes>
+                                <exclude>**/tests/*.java</exclude>
+                            </excludes>
+                            <argLine>-Xmx512m</argLine>
+                            <systemPropertyVariables>
+                                <properties>./config.properties</properties>
+                            </systemPropertyVariables>
+                            <excludes>
+                            </excludes>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <goals>
+                                    <goal>integration-test</goal>
+                                    <goal>verify</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
             <properties>
                 <maven.test.skip>Suite</maven.test.skip>
             </properties>
@@ -116,31 +179,6 @@
                 <configuration>
                     <skip>true</skip>
                 </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-failsafe-plugin</artifactId>
-                <version>3.0.0-M5</version>
-                <configuration>
-                    <groups>${tests}</groups>
-                    <includes>
-                        <include>**/tests/*.java</include>
-                    </includes>
-                    <argLine>-Xmx512m</argLine>
-                    <systemPropertyVariables>
-                        <properties>./config.properties</properties>
-                    </systemPropertyVariables>
-                    <excludes>
-                    </excludes>
-                </configuration>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>integration-test</goal>
-                            <goal>verify</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
