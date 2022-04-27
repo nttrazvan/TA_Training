@@ -10,7 +10,6 @@ import utils.DriverBuilder;
 import utils.Helpers;
 
 import java.io.IOException;
-
 import static utils.DriverBuilder.getDriver;
 
 public class emptyTemplate1Test {

@@ -1,12 +1,16 @@
 package utils;
 
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.time.Duration;
 import java.util.Properties;
 
 import static utils.DriverBuilder.getDriver;
@@ -47,7 +51,11 @@ public class Helpers {
     }
 
     public static void waitForElement(int seconds, WebElement element){
-        WebDriverWait wait = new WebDriverWait(getDriver, seconds);
+        Wait wait = new FluentWait(getDriver)
+                .withTimeout(Duration.ofSeconds(seconds))
+                .pollingEvery(Duration.ofMillis(500))
+                .ignoring(NoSuchElementException.class);
         wait.until(ExpectedConditions.visibilityOf(element));
+        element.isDisplayed();
     }
 }
