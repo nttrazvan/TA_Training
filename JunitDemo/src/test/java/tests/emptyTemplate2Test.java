@@ -45,10 +45,10 @@ public class emptyTemplate2Test {
         EmptyTemplatePage.searchField().sendKeys(testDataContainer.summerString);
         EmptyTemplatePage.searchField().submit();
         System.out.println("The number of search results titles is: " + EmptyTemplatePage.results().size());
-        for (WebElement element : EmptyTemplatePage.results()) {
-            int i = EmptyTemplatePage.results().indexOf(element);
+        for (WebElement cartodfElement : EmptyTemplatePage.results()) {
+            int i = EmptyTemplatePage.results().indexOf(cartodfElement);
             // Intentionally set value to winterString to fail
-            softly.assertThat(element.getAttribute("textContent").toLowerCase()).contains(testDataContainer.winterString)
+            softly.assertThat(cartodfElement.getAttribute("textContent").toLowerCase()).contains(testDataContainer.winterString)
                     .as("The title numbered: " + i + " does not contain the string: " + testDataContainer.summerString);
         }
         softly.assertAll();
