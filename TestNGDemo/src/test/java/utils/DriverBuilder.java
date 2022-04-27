@@ -1,6 +1,5 @@
 package utils;
 
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -17,7 +16,6 @@ public class DriverBuilder {
     }
 
     public static WebDriver setDriver() {
-        WebDriverManager.chromedriver().setup();
         if (System.getProperty("webdriver.driver").contains("chrome")) {
             return getDriver = new ChromeDriver();
         } else if (System.getProperty("webdriver.driver").contains("firefox")) {
@@ -27,14 +25,6 @@ public class DriverBuilder {
         } else {
             return null;
         }
-    }
-
-    public static void initialiseWebdriver() throws IOException {
-        Helpers.getPropValues();
-        DriverBuilder.setDriver();
-        DriverBuilder.setDriverDefaultWait(20);
-        getDriver.get(System.getProperty("default.url"));
-        getDriver.manage().window().maximize();
     }
 
     public static void kill() {
