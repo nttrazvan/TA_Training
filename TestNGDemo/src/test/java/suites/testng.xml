@@ -5,6 +5,7 @@
         <groups>
             <run>
                 <include name="test1"/>
+                <include name="test2"/>
             </run>
         </groups>
         <classes>
