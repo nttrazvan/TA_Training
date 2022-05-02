@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="C:/NTT_Training/TA_Training/TestNGDemo">
+        <groups>
+            <run>
+                <include name="test1"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="tests.emptyTemplate1Test">
+                <methods>
+                    <include name="launchBrowserTest"/>
+                </methods>
+            </class>
+            <class name="tests.emptyTemplate2Test">
+                <methods>
+                    <include name="verifySearchResultTest01"/>
+                    <include name="verifySearchResultTest02"/>
+                </methods>
+            </class>
+            <class name="tests.emptyTemplate3Test">
+                <methods>
+                    <include name="successTest"/>
+                    <include name="failTest"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
