@@ -29,14 +29,6 @@ public class DriverBuilder {
         }
     }
 
-    public static void initialiseWebdriver() throws IOException {
-        Helpers.getPropValues();
-        DriverBuilder.setDriver();
-        DriverBuilder.setDriverDefaultWait(20);
-        getDriver.get(System.getProperty("default.url"));
-        getDriver.manage().window().maximize();
-    }
-
     public static void kill() {
         if (getDriver != null) {
             getDriver.quit();
