@@ -9,10 +9,10 @@ public class LoginPage {
 
 
 
-    public static WebElement enterUsername() {
+    public static WebElement usernameInput() {
         return getDriver.findElement(By.cssSelector("input[autocomplete='username']"));
     }
-    public static WebElement enterPassword() {
+    public static WebElement passwordInput() {
         return getDriver.findElement(By.cssSelector("input[autocomplete='password']"));
     }
 

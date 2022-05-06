@@ -30,8 +30,8 @@ public class no20EnterCredentialsTest {
     @Test
     @Tag(value = "enterCredentials")
     public void enterCredentialsTest() {
-        LoginPage.enterUsername().sendKeys(testDataTREG.username);
-        LoginPage.enterPassword().sendKeys(testDataTREG.password);
+        LoginPage.usernameInput().sendKeys(testDataTREG.username);
+        LoginPage.passwordInput().sendKeys(testDataTREG.password);
     }
 
 

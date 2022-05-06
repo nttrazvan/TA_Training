@@ -1,6 +1,5 @@
 package tests;
 
-import Pages.DashboardPage;
 import Pages.LoginPage;
 import org.assertj.core.api.SoftAssertions;
 import org.junit.Assert;
@@ -16,7 +15,7 @@ import java.io.IOException;
 
 import static utils.DriverBuilder.getDriver;
 
-public class no21ValidateLoginTest {
+public class ValidateCredentialsInputTest {
     SoftAssertions softly = new SoftAssertions();
 
     @BeforeEach
@@ -24,19 +23,18 @@ public class no21ValidateLoginTest {
         System.out.println("This method is called before each test executes");
         Helpers.getPropValues();
         DriverBuilder.setDriver();
-        DriverBuilder.setDriverDefaultWait(20);
+        DriverBuilder.setDriverDefaultWait(10);
         getDriver.get(System.getProperty("default.url"));
         getDriver.manage().window().maximize();
     }
 
     @Test
-    @Tag(value = "validateLogin")
-    public void validateLoginTest() {
+    @Tag(value = "validateCredentialsEntered")
+    public void enterCredentialsTest() {
         LoginPage.usernameInput().sendKeys(testDataTREG.username);
         LoginPage.passwordInput().sendKeys(testDataTREG.password);
-        LoginPage.submitButton().click();
-        Helpers.waitForElement(10, DashboardPage.dashboardButton());
-        Assert.assertEquals(getDriver.getTitle(), testDataTREG.expectedDashboardTitle);
+        Assert.assertTrue(LoginPage.usernameInput().getAttribute("value").contains(testDataTREG.username));
+        Assert.assertTrue(LoginPage.passwordInput().getAttribute("value").contains(testDataTREG.password));
     }
 
 

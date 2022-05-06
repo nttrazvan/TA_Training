@@ -16,7 +16,7 @@ import java.io.IOException;
 
 import static utils.DriverBuilder.getDriver;
 
-public class no21ValidateLoginTest {
+public class ValidateLoginTest {
     SoftAssertions softly = new SoftAssertions();
 
     @BeforeEach
@@ -36,6 +36,7 @@ public class no21ValidateLoginTest {
         LoginPage.passwordInput().sendKeys(testDataTREG.password);
         LoginPage.submitButton().click();
         Helpers.waitForElement(10, DashboardPage.dashboardButton());
+        DashboardPage.dashboardButton().isDisplayed();
         Assert.assertEquals(getDriver.getTitle(), testDataTREG.expectedDashboardTitle);
     }
 
