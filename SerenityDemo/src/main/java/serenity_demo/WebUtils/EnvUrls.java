@@ -23,4 +23,5 @@ public class EnvUrls {
         }
         return url;
     }
+    private Integer int2=2;
 }
