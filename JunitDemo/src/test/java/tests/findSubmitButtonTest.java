@@ -13,7 +13,7 @@ import java.io.IOException;
 
 import static utils.DriverBuilder.getDriver;
 
-public class no11FindSubmitButtonTest {
+public class findSubmitButtonTest {
     SoftAssertions softly = new SoftAssertions();
 
     @BeforeEach
