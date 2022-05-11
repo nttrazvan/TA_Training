@@ -35,6 +35,7 @@ public class ValueListsStory {
     @Title("01 Test of the overview of value lists")
     public void T01valueListsOverviewTest1() {
         tregSteps.openMenu();
+        tregSteps.openValueListsOverview();
         tregSteps.validateTitle();
         tregSteps.validateHeader();
     }
@@ -44,6 +45,7 @@ public class ValueListsStory {
     @Title("02 Edit Page for the list Adressmuster und -hinweise")
     public void T02editPageAddresses2() {
         tregSteps.openMenu();
+        tregSteps.openValueListsOverview();
         tregSteps.openAddressListInEditMode();
     }
 }

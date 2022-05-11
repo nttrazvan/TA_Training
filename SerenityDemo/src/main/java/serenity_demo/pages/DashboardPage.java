@@ -8,7 +8,7 @@ public class DashboardPage extends PageObject {
     @FindBy(css = "span.menu-button")
     public WebElementFacade menuButton;
 
-    @FindBy(css = "body > tpr-root > tpr-header > div.header.background-white > div > div.d-flex.align-items-center > p-menu > div > ul > li:nth-child(6) > a > span")
+    @FindBy(xpath = "//span[contains(text(),'Wertelistenverwaltung')]")
     public WebElementFacade valueLists;
     
 }

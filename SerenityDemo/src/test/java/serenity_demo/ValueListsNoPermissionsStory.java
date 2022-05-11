@@ -3,6 +3,8 @@ package serenity_demo;
 import net.serenitybdd.core.exceptions.NoSuchElementException;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.*;
+import net.thucydides.core.webdriver.exceptions.ElementShouldBeEnabledException;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
@@ -11,6 +13,8 @@ import org.junit.runners.MethodSorters;
 import org.openqa.selenium.WebDriver;
 import serenity_demo.steps.TregSteps;
 import serenity_demo.testData.TregTestData;
+
+import static com.ibm.icu.impl.Assert.assrt;
 
 @Story(ValueListsNoPermissionsStory.class)
 @RunWith(SerenityRunner.class)
@@ -31,15 +35,11 @@ public class ValueListsNoPermissionsStory {
         tregSteps.inputPassword(TregTestData.limitedRightsPassword);
     }
 
-//    @Test
-//    @WithTag("ValueListsOverview1")
-//    @Title("01 Test of the overview of value lists")
-//    public void T01valueListsOverviewTest1() {
-//        try {
-//            tregSteps.openMenu();
-//        }
-//        catch (NoSuchElementException) {
-//            System.out.println("This test is supposed to fail");
-//        }
-//    }
+    @Test
+    @WithTag("CheckPermissions1")
+    @Title("01 Test the permissions for value lists")
+    public void T01PermissionsTest1() {
+        tregSteps.openMenu();
+        tregSteps.checkValueListsOverview();
+    }
 }

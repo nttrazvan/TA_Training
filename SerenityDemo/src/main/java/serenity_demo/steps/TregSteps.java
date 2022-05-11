@@ -21,10 +21,6 @@ public class TregSteps extends ScenarioSteps {
     private ValueListAddressEditPage valueListAddressEditPage;
     private final String valueListAddressEditTableTitle = "Adressmuster und -hinweise";
 
-    @Step("Empty verification Template")
-    public void emptyVerificationTemplate() {
-        softly.assertThat(getDriver().getCurrentUrl()).contains("/").as("This message will be displayed if the assert fails in the console");
-    }
 
     @Step("Open page")
     public void open(String url) {
@@ -46,6 +42,10 @@ public class TregSteps extends ScenarioSteps {
     @Step("STEP: I open the menu")
     public void openMenu(){
         dashboardPage.menuButton.click();
+    }
+
+    @Step("STEP: I open the Value lists Overview")
+    public void openValueListsOverview(){
         dashboardPage.valueLists.click();
     }
 
@@ -66,5 +66,11 @@ public class TregSteps extends ScenarioSteps {
         valueListAddressEditPage.editButtonAddress.click();
         Assert.assrt(valueListAddressEditPage.tableTitle.getAttribute("textContent").contains(valueListAddressEditTableTitle));
         System.out.println(valueListAddressEditPage.tableTitle.getAttribute("textContent"));
+    }
+
+    @Step("STEP: I test the permissions by checking that the Value lists Overview option is not present in the menu")
+    public void checkValueListsOverview(){
+        softly.assertThat(dashboardPage.valueLists.isPresent());
+        System.out.println(dashboardPage.valueLists.isPresent());
     }
 }
