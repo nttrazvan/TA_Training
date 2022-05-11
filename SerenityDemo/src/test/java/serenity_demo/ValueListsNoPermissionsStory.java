@@ -12,8 +12,6 @@ import org.openqa.selenium.WebDriver;
 import serenity_demo.steps.TregSteps;
 import serenity_demo.testData.TregTestData;
 
-import static org.jsoup.helper.Validate.fail;
-
 @Story(ValueListsNoPermissionsStory.class)
 @RunWith(SerenityRunner.class)
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
@@ -33,15 +31,15 @@ public class ValueListsNoPermissionsStory {
         tregSteps.inputPassword(TregTestData.limitedRightsPassword);
     }
 
-    @Test
-    @WithTag("ValueListsOverview1")
-    @Title("01 Test of the overview of value lists")
-    public void T01valueListsOverviewTest1() {
-        try {
-            tregSteps.openMenu();
-        }
-        catch (NoSuchElementException) {
-            System.out.println("This test is supposed to fail");
-        }
-    }
+//    @Test
+//    @WithTag("ValueListsOverview1")
+//    @Title("01 Test of the overview of value lists")
+//    public void T01valueListsOverviewTest1() {
+//        try {
+//            tregSteps.openMenu();
+//        }
+//        catch (NoSuchElementException) {
+//            System.out.println("This test is supposed to fail");
+//        }
+//    }
 }
