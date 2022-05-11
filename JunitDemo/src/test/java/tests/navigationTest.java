@@ -47,7 +47,7 @@ public class navigationTest {
     }
 
     @Test
-    @Tag(value = "test3")
+    @Tag(value = "checkNavTitles")
     public void checkNavTitles(){
         assertEquals(DashboardPage.dashboardButton().getAttribute("textContent"),firstElementNav);
         System.out.println("This is the Dashboard");
