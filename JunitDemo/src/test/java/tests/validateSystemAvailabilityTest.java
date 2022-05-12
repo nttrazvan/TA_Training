@@ -26,7 +26,7 @@ public class validateSystemAvailabilityTest {
     }
 
     @Test
-    @Tag(value = "validateTitle")
+    @Tag(value = "smoke")
     public void launchBrowserTest(){
         softly.assertThat(getDriver.getTitle()).contains("Anmelden").as("This message will be shown when the assertion fails");
         softly.assertAll();

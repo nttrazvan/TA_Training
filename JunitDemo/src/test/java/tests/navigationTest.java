@@ -37,7 +37,7 @@ public class navigationTest {
 
 //Todo - remove additional lines and hardcoded printed messages
     @Test
-    @Tag(value = "checkNavTitles")
+    @Tag(value = "smoke")
     public void checkNavTitles(){
         assertEquals(DashboardPage.dashboardButton().getAttribute("textContent"),testDataTREG.dashboardFirstNavigationElement);
         assertEquals(OwiPage.owiNav().getAttribute("textContent"),testDataTREG.dashboardSecondNavigationElement);

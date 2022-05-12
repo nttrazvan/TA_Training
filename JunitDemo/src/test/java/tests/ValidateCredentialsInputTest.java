@@ -27,8 +27,8 @@ public class ValidateCredentialsInputTest {
     }
 //Todo - The name of the test is inconsistent, validateLoginInputsFunctionality
     @Test
-    @Tag(value = "validateLoginInputsFunctionality")
-    public void enterCredentialsTest() {
+    @Tag(value = "login")
+    public void validateLoginInputsFunctionality() {
         LoginPage.usernameInput().sendKeys(testDataTREG.username);
         LoginPage.passwordInput().sendKeys(testDataTREG.password);
         Assert.assertTrue(LoginPage.usernameInput().getAttribute("value").contains(testDataTREG.username));

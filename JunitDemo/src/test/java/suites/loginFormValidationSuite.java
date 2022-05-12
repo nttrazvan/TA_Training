@@ -7,7 +7,7 @@ import org.junit.platform.suite.api.SuiteDisplayName;
 //Todo - The Suite Display Name does not explain what the suite actually does
 @Suite
 @SuiteDisplayName("This tests validate the login functionality")
-@IncludeTags(value = {"validateTitle","login"})
+@IncludeTags(value = {"smoke","login"})
 @SelectPackages("tests")
 public class loginFormValidationSuite {
 }
