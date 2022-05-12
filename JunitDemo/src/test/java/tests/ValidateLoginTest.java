@@ -15,7 +15,7 @@ import utils.Helpers;
 import java.io.IOException;
 
 import static utils.DriverBuilder.getDriver;
-
+//Todo - Please remove the declaration of soft assertions if not used and the additional empty lines
 public class ValidateLoginTest {
     SoftAssertions softly = new SoftAssertions();
 
@@ -28,7 +28,7 @@ public class ValidateLoginTest {
         getDriver.get(System.getProperty("default.url"));
         getDriver.manage().window().maximize();
     }
-
+//ToDo - the final assert is redundant as the login functionality is successful upon the appearance of the dashboardButton
     @Test
     @Tag(value = "validateLogin")
     public void validateLoginTest() {

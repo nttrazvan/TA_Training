@@ -18,7 +18,7 @@ import java.io.IOException;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static utils.DriverBuilder.getDriver;
-
+//Todo - please keep the constants in the test data files
 public class navigationTest {
     public final String firstElementNav = "Dashboard";
     public final String secondElementNav = "Ordnungswidrigkeiten";
@@ -37,7 +37,7 @@ public class navigationTest {
         Helpers.waitForElement(10, DashboardPage.dashboardButton());
         DashboardPage.dashboardButton().isDisplayed();
     }
-
+//Todo - the test does not "navigate" and printing the value of constants is redundant, please refactor
     @Test
     @Tag(value = "navigation")
     public void successTest(){
@@ -45,7 +45,7 @@ public class navigationTest {
         System.out.println(firstElementNav);
         System.out.println(secondElementNav);
     }
-
+//Todo - remove additional lines and hardcoded printed messages
     @Test
     @Tag(value = "checkNavTitles")
     public void checkNavTitles(){
