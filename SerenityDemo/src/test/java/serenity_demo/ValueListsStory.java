@@ -31,9 +31,9 @@ public class ValueListsStory {
     }
 
     @Test
-    @WithTag("ValueListsOverview1")
+    @WithTag("ValueListsOverview")
     @Title("01 Test of the overview of value lists")
-    public void T01valueListsOverviewTest1() {
+    public void T01valueListsOverviewTest() {
         tregSteps.openMenu();
         tregSteps.openValueListsOverview();
         tregSteps.validateTitle();
@@ -41,9 +41,9 @@ public class ValueListsStory {
     }
 
     @Test
-    @WithTag("AddressNotes2")
+    @WithTag("AddressNotes")
     @Title("02 Edit Page for the list Adressmuster und -hinweise")
-    public void T02editPageAddresses2() {
+    public void T02editPageAddresses() {
         tregSteps.openMenu();
         tregSteps.openValueListsOverview();
         tregSteps.openAddressListInEditMode();

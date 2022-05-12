@@ -9,11 +9,8 @@ import java.util.List;
 public class LoginPage extends PageObject {
     @FindBy(css = "input[autocomplete='username']")
     public WebElementFacade usernameInput;
-
     @FindBy(css = "input[autocomplete='password']")
     public WebElementFacade passwordInput;
-
     @FindBy(tagName = "button")
     public WebElementFacade submitButton;
-
 }

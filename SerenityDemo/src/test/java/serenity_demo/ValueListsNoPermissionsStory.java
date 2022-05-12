@@ -36,9 +36,9 @@ public class ValueListsNoPermissionsStory {
     }
 
     @Test
-    @WithTag("CheckPermissions1")
-    @Title("01 Test the permissions for value lists")
-    public void T01PermissionsTest1() {
+    @WithTag("CheckPermissions")
+    @Title("Test the permissions for value lists")
+    public void PermissionsTest() {
         tregSteps.openMenu();
         tregSteps.checkValueListsOverview();
     }
