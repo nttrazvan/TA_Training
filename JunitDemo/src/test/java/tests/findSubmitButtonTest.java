@@ -1,5 +1,6 @@
 package tests;
 
+import Pages.LoginPage;
 import org.assertj.core.api.SoftAssertions;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -27,9 +28,9 @@ public class findSubmitButtonTest {
     }
 //Todo - Please declare the element in the proper Page and call it in the tests
     @Test
-    @Tag(value = "loginFormValidation")
+    @Tag(value = "login")
     public void findSubmitButtonTest(){
-        softly.assertThat(getDriver.findElement(By.tagName("button"))).as("This message will be shown when the assertion fails");
+        softly.assertThat(LoginPage.submitButton()).as("This message will be shown when the assertion fails");
         softly.assertAll();
     }
 
