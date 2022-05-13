@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><testsuite errors="0" failures="1" name="serenity_demo.ValueListsNoPermissionsStory" skipped="0" tests="1" time="18.08" timestamp="2022-05-11 09:24:37"><testcase classname="serenity_demo.ValueListsNoPermissionsStory" name="01 Test of the overview of value lists"><failure message="Expected enabled element was not enabled" type="net.thucydides.core.webdriver.exceptions.ElementShouldBeEnabledException">Expected enabled element was not enabled</failure><system-err>Expected enabled element was not enabled&#13;
+serenity_demo.steps.TregSteps.openMenu(TregSteps.java:49)&#13;
+serenity_demo.ValueListsNoPermissionsStory.T01valueListsOverviewTest1(ValueListsNoPermissionsStory.java:40)&#13;
+</system-err></testcase></testsuite>
