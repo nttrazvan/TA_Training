@@ -1,5 +1,5 @@
 package serenity_demo;
-
+//ToDo - remove unused imports
 import net.serenitybdd.core.exceptions.NoSuchElementException;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.*;
