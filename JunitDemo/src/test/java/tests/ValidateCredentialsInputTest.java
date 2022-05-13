@@ -14,7 +14,7 @@ import utils.Helpers;
 import java.io.IOException;
 
 import static utils.DriverBuilder.getDriver;
-//Todo - Please remove the declaration of soft assertions if not used and the additional empty lines
+
 public class ValidateCredentialsInputTest {
     @BeforeEach
     public void beforeMethod() throws IOException {
@@ -25,7 +25,7 @@ public class ValidateCredentialsInputTest {
         getDriver.get(System.getProperty("default.url"));
         getDriver.manage().window().maximize();
     }
-//Todo - The name of the test is inconsistent, validateLoginInputsFunctionality
+
     @Test
     @Tag(value = "login")
     public void validateLoginInputsFunctionality() {

@@ -18,7 +18,7 @@ import java.io.IOException;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static utils.DriverBuilder.getDriver;
-//Todo - please keep the constants in the test data files
+
 public class navigationTest {
     @BeforeEach
     public void beforeMethod() throws IOException {
@@ -35,7 +35,6 @@ public class navigationTest {
         DashboardPage.dashboardButton().isDisplayed();
     }
 
-//Todo - remove additional lines and hardcoded printed messages
     @Test
     @Tag(value = "smoke")
     public void checkNavTitles(){
