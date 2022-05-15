@@ -12,7 +12,6 @@ import serenity_demo.pages.ValueListsOverviewPage;
 import serenity_demo.testData.TregTestData;
 
 public class TregSteps extends ScenarioSteps {
-    private SoftAssertions softly = new SoftAssertions();
     private LoginPage loginPage;
     private DashboardPage dashboardPage;
     private ValueListsOverviewPage valueListsOverviewPage;
@@ -66,7 +65,7 @@ public class TregSteps extends ScenarioSteps {
 
     @Step("STEP: I test the permissions by checking that the Value lists Overview option is not present in the menu")
     public void checkValueListsOverview(){
-        softly.assertThat(!dashboardPage.valueLists.isPresent());
+        Assert.assrt(!dashboardPage.valueLists.isPresent());
         System.out.println(!dashboardPage.valueLists.isPresent());
     }
 }
