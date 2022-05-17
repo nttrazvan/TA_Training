@@ -56,5 +56,6 @@ public class Helpers {
                 .pollingEvery(Duration.ofMillis(500))
                 .ignoring(NoSuchElementException.class);
         wait.until(ExpectedConditions.visibilityOf(element));
+        element.isDisplayed();
     }
 }

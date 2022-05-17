@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" preserve-order="true" name="C:/NTT_Training/TA_Training/APIDemo">
+        <classes>
+            <class name="tests.APITest">
+                <methods>
+                    <include name="addNewPet"/>
+                    <include name="createNewUser"/>
+                    <include name="userLogIn"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>
