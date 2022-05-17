@@ -7,7 +7,7 @@ Feature: Empty feature scenario for learning
   @SomeTag1
   Scenario: This is a simple scenario
     Given This is an empty template without parameters
-    When This is an empty template with one parameter 100
+    When This is an empty templa te with one parameter 100
 
 
   @SomeTag2
