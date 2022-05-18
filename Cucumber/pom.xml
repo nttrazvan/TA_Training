@@ -37,6 +37,10 @@
                 </exclusion>
                 <exclusion>
                     <groupId>net.serenity-bdd</groupId>
+                    <artifactId>serenity-screenplay-playwright</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>net.serenity-bdd</groupId>
                     <artifactId>serenity-screenplay-webdriver</artifactId>
                 </exclusion>
             </exclusions>
@@ -45,6 +49,20 @@
             <groupId>net.serenity-bdd.maven.plugins</groupId>
             <artifactId>serenity-maven-plugin</artifactId>
             <version>${serenity.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>net.serenity-bdd</groupId>
+                    <artifactId>serenity-screenplay</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>net.serenity-bdd</groupId>
+                    <artifactId>serenity-screenplay-playwright</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>net.serenity-bdd</groupId>
+                    <artifactId>serenity-screenplay-webdriver</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -64,7 +82,6 @@
             <version>4.12</version>
             <scope>test</scope>
         </dependency>
-
     </dependencies>
     <build>
         <plugins>
