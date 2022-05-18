@@ -1,72 +1,68 @@
 package tests;
 
-import io.restassured.path.json.JsonPath;
-import io.restassured.response.Response;
-import java.io.File;
-import org.testng.Assert;
-import org.testng.annotations.Test;
-
-import utils.TestUtils;
-
 import static io.restassured.RestAssured.given;
 
+import io.restassured.path.json.JsonPath;
+import io.restassured.response.Response;
+import org.testng.Assert;
+import org.testng.annotations.Test;
+import testdata.TestData;
+import utils.TestUtils;
 
 public class APITest {
-    String baseURL = "https://petstore.swagger.io/v2";
-    String urlSuffixCreateUser = "/user";
-    String urlSuffixUserLogIn = "/login";
-    String urlSuffixAddPet = "/pet";
-    File jsonData = new File("src/test/resources/user.json");
-    TestUtils testUtils = new TestUtils();
 
-    @Test
-    public void addNewPet(){
-        Response response = given()
-            .baseUri(baseURL)
-            .contentType("application/json")
-            .body("{"
-                + "  \"id\": 0,"
-                + "  \"category\": {"
-                + "    \"id\": 0,"
-                + "    \"name\": \"chicken\""
-                + "  },"
-                + "  \"name\": \"Sam\","
-                + "  \"status\": \"available\""
-                + "}")
-            .when()
-            .post(urlSuffixAddPet)
-            .then()
-            .statusCode(200)
-            .extract()
-            .response();
+  TestData testData = new TestData();
+  TestUtils testUtils = new TestUtils();
 
-        System.out.println(response.asString());
-    }
+  @Test
+  public void addNewPet() {
+    Response response = given()
+        .baseUri(testData.BASE_URL)
+        .contentType("application/json")
+        .body("{"
+            + "  \"id\": 0,"
+            + "  \"category\": {"
+            + "    \"id\": 0,"
+            + "    \"name\": \"chicken\""
+            + "  },"
+            + "  \"name\": \"Sam\","
+            + "  \"status\": \"available\""
+            + "}")
+        .when()
+        .post(testData.URL_SUFFIX_ADD_PET)
+        .then()
+        .statusCode(200)
+        .extract()
+        .response();
 
-    @Test
-    public void createNewUser(){
-        Response response = given()
-            .baseUri(baseURL)
-            .contentType("application/json")
-            .body(jsonData)
-            .when()
-            .post(urlSuffixCreateUser);
+    System.out.println(response.asString());
+  }
 
-        testUtils.checkStatusIs200(response);
-    }
+  @Test
+  public void createNewUser() {
+    Response response = given()
+        .baseUri(testData.BASE_URL)
+        .contentType("application/json")
+        .body(testData.JSON_USER)
+        .when()
+        .post(testData.URL_SUFFIX_CREATE_USER);
 
-    @Test
-    public void userLogIn(){
-        Response response = given()
-            .auth()
-            .basic("test","test")
-            .baseUri(baseURL)
-            .contentType("application/json")
-            .get(urlSuffixCreateUser+urlSuffixUserLogIn);
+    testUtils.checkStatusIs200(response);
+  }
 
-        testUtils.checkStatusIs200(response);
-        JsonPath jsonPath = new JsonPath(response.asString());
-        String message = jsonPath.getString("message");
-        Assert.assertTrue(message.contains("logged in user session:"), "Message doesn't contain the expected value: " + message );
-    }
+  @Test
+  public void userLogIn() {
+    Response response = given()
+        .auth()
+        .basic("test", "test")
+        .baseUri(testData.BASE_URL)
+        .contentType("application/json")
+        .get(testData.URL_SUFFIX_CREATE_USER + testData.URL_SUFFIX_USER_LOG_IN);
+
+    testUtils.checkStatusIs200(response);
+    JsonPath jsonPath = new JsonPath(response.asString());
+    String message = jsonPath.getString("message");
+    Assert.assertTrue(message.contains("logged in user session:"),
+        "Message doesn't contain the expected value: " + message);
+  }
 }
