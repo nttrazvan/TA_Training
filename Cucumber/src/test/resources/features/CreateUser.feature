@@ -1,14 +1,17 @@
 @Regression
-Feature: Empty feature scenario for learning
-  As an automation engineer
-  I want to test the different things
+Feature: Scenarios for testing the creation of a user.
+  As an administrator
+  I want to be able to create a user
   Using Java, cucumber and serenity
 
   @SomeTag1
-  Scenario: This is a simple scenario
-    Given This is an empty template without parameters
-    When This is an empty template with one parameter 100
-
+  Scenario: I want to open the user creation page
+    Given I open the browser to "http://localhost:8080/tpr/tpr/login"
+    Given I first enter the "User1A"
+    Given I then enter the "TPRBenutzer01!" and press submit
+    Given I navigate to the user overview
+    And I click the button to create a user
+    Then I verify the title of the creation user page
 
   @SomeTag2
   Scenario Outline: This is a scenario outline that uses more elements

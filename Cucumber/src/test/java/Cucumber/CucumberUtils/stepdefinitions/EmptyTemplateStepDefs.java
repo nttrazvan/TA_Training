@@ -54,10 +54,7 @@ public class EmptyTemplateStepDefs {
         emptyTemplateSteps.stepWithTwoParameters(firstParameter, secondParameter);
     }
 
-    @Given("I open the browser to {string}")
-    public void navigate(String url){
-        emptyTemplateSteps.navigate(url);
-    }
+
 
     @And("I search for the string {string}")
     public void searchForString(String something){
