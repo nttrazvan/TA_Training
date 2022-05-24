@@ -1,15 +1,10 @@
 package Cucumber.CucumberUtils.stepdefinitions;
 
-import Cucumber.CucumberUtils.pages.BenutzerverwaltungPage;
-import Cucumber.CucumberUtils.pages.DashboardPage;
-import Cucumber.CucumberUtils.pages.EmptyTemplatePage;
 import Cucumber.CucumberUtils.pages.LoginPage;
-import Cucumber.CucumberUtils.steps.BenutzerverwaltungSteps;
+import Cucumber.CucumberUtils.steps.LoginSteps;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
 import net.serenitybdd.core.Serenity;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.util.EnvironmentVariables;
@@ -20,10 +15,8 @@ import java.io.IOException;
 
 import static net.thucydides.core.webdriver.ThucydidesWebDriverSupport.getDriver;
 
-public class BenutzerverwaltungStepDefs {
+public class LoginStepDefs {
     private LoginPage loginPage;
-    private BenutzerverwaltungPage benutzerverwaltungPage;
-    private DashboardPage dashboardPage;
 
     //Do not delete
     @Before("@Web")
@@ -38,27 +31,25 @@ public class BenutzerverwaltungStepDefs {
     }
 
     @AfterClass
-    public void tearDown(){
+    public void tearDown() {
         getDriver().quit();
     }
 
     @Steps
-    private BenutzerverwaltungSteps benutzerverwaltungSteps;
+    private LoginSteps loginSteps;
 
-
-    @Given("I navigate to the user overview")
-    public void navigateUserOverview(){
-        benutzerverwaltungSteps.openMenu();
-        benutzerverwaltungSteps.openUserOverview();
+    @Given("I open the browser to {string}")
+    public void openLoginPage(String url) {
+        loginSteps.openLoginPage(url);
     }
 
-    @And("I click the button to create a user")
-    public void openUserCreation(){
-        benutzerverwaltungSteps.openUserCreation();
+    @And("I first enter the username {string}")
+    public void inputUsername(String something) {
+        loginSteps.inputUsername(something);
     }
 
-    @Then("I verify the title of the creation user page")
-    public void verifyCreationUserTitle(){
-        benutzerverwaltungSteps.verifyTitleUserCreationPage();
+    @And("I then enter the password {string} and press submit")
+    public void inputPassword(String something) {
+        loginSteps.inputPassword(something);
     }
 }

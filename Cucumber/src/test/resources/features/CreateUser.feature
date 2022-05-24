@@ -4,11 +4,13 @@ Feature: Scenarios for testing the creation of a user.
   I want to be able to create a user
   Using Java, cucumber and serenity
 
+
+    Given I open the browser to "http://localhost:8080/tpr/tpr/login"
+    And I first enter the username "User1A"
+    And I then enter the password "TPRBenutzer01!" and press submit
+
   @SomeTag1
   Scenario: I want to open the user creation page
-    Given I open the browser to "http://localhost:8080/tpr/tpr/login"
-    Given I first enter the "User1A"
-    Given I then enter the "TPRBenutzer01!" and press submit
     Given I navigate to the user overview
     And I click the button to create a user
     Then I verify the title of the creation user page
@@ -34,9 +36,12 @@ Feature: Scenarios for testing the creation of a user.
 
 
   @SomeTagDemo @Web
-  Scenario Outline: This is a scenario outline that uses more elements
-    Given I open the browser to "http://the-internet.herokuapp.com/challenging_dom"
-    Given The title is "The Internet"
+  Scenario Outline: This scenario tests the Value Lists Overview
+    Given I open the browser to "http://localhost:8080/tpr/tpr/login"
+    Given The title is "Anmelden - Transparenzregister"
+    Given I first enter the username "User1A"
+    Given I then enter the password "TPRBenutzer01!" and press submit
+    Given I navigate to the Value Lists Overview
     And The content matches
     When I click the "Blue" button and verify it has text
     Then And the Header contains "<Headers>"

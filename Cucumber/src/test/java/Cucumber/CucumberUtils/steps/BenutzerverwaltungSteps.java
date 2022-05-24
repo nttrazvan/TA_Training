@@ -19,21 +19,7 @@ public class BenutzerverwaltungSteps {
     private SoftAssertions softly = new SoftAssertions();
 
 
-    @Step()
-    public void navigate(String url){
-        benutzerverwaltungPage.navigate(url);
-    }
 
-    @Step()
-    public void inputUsername(String something) {
-        loginPage.usernameInput.sendKeys(something);
-    }
-
-    @Step()
-    public void inputPassword(String something){
-        loginPage.passwordInput.sendKeys(something);
-        loginPage.submitButton.submit();
-    }
     @Step()
     public void openMenu(){
         dashboardPage.menuButton.click();

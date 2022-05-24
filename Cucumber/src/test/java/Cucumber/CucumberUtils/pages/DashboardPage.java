@@ -4,7 +4,6 @@ import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
 public class DashboardPage extends PageObject {
 
@@ -17,6 +16,13 @@ public class DashboardPage extends PageObject {
 
     @FindBy(xpath = "//span[text()='Benutzerverwaltung']")
     public WebElementFacade userOverview;
+
+    @FindBy(xpath = "//span[contains(text(),'Wertelistenverwaltung')]")
+    public WebElementFacade valueListsOverview;
+
+    @FindBy(css = " a[href='/tpr/tpr/home']")
+    public WebElementFacade dashboardButton;
+
 
 }
 

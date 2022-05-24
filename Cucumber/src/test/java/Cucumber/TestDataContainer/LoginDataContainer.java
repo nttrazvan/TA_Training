@@ -1,6 +1,6 @@
 package Cucumber.TestDataContainer;
 
-public class TregDataContainer {
+public class LoginDataContainer {
     public static final String fullRightsUsername1 = "User1A";
     public static final String fullRightsUsername2 = "UserG";
     public static final String fullRightsUsername3 = "UserL";
