@@ -1,7 +1,5 @@
 package tests;
-
 import static org.testng.Assert.assertTrue;
-
 import java.util.HashMap;
 import java.util.List;
 import org.slf4j.Logger;
@@ -26,7 +24,7 @@ public class DBTest {
   }
 
   @Test
-  public void checkUserWasCreated() {
+  public void checkUserCreation() {
     String expectedName = "testUser";
     List<HashMap<String, String>> result = testUtils
         .resultList(queryData.getUserByName(expectedName));

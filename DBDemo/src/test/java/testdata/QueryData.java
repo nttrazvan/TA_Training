@@ -21,4 +21,15 @@ public class QueryData {
         + password + "', '" + isActive + "');";
   }
 
+  public String updateEmailUser(String email, String name) {
+    return "UPDATE users SET email = '" + email  + "' WHERE name = '" + name + "';";
+  }
+
+  public String deleteUser(String name) {
+    return "DELETE FROM users WHERE name = '" + name + "';";
+  }
+
+  public String getCreationDate(String name) {
+    return "SELECT createdOn FROM users WHERE name = '" + name + "'";
+  }
 }

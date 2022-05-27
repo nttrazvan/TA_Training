@@ -68,4 +68,39 @@ public class TestUtils {
     }
     return list;
   }
+
+  public  void updateEntry(String query){
+    logger.info("Execute query: " + query);
+    try {
+      connection = getConnection();
+
+      Statement statement = connection.createStatement();
+      statement.executeUpdate(query);
+    }catch (SQLException | ClassNotFoundException e) {
+      e.printStackTrace();
+    }
+    try {
+      connection.close();
+    } catch (SQLException throwables) {
+      throwables.printStackTrace();
+    }
+  }
+
+  public  void deleteEntry(String query){
+    logger.info("Execute query: " + query);
+    try {
+      connection = getConnection();
+
+      Statement statement = connection.createStatement();
+      statement.executeUpdate(query);
+    }catch (SQLException | ClassNotFoundException e) {
+      e.printStackTrace();
+    }
+    try {
+      connection.close();
+    } catch (SQLException throwables) {
+      throwables.printStackTrace();
+    }
+  }
+
 }
