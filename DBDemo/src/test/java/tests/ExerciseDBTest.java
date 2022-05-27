@@ -66,11 +66,11 @@ public class ExerciseDBTest {
       testUtils.updateEntry(queryData.updateEmailUser(email, name));
     }
 
-//  @Test
-//  public void deleteUser() {
-//    //delete the created user and validate that it was deleted
-//    String name = "lianaChis";
-//    testUtils.deleteEntry(queryData.deleteUser(name));
-//  }
+  @Test
+  public void deleteUser() {
+    //delete the created user and validate that it was deleted
+    String name = "lianaChis";
+    testUtils.deleteEntry(queryData.deleteUser(name));
+  }
 
 }
