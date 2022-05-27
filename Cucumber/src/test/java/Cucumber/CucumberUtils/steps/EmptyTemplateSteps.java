@@ -60,24 +60,23 @@ public class EmptyTemplateSteps {
 
     @Step()
     public void checkTitle(String title){
-        softly.assertThat(emptyTemplatePage.getDriver().getTitle()).contains(title);
-        System.out.println(getDriver().getTitle());
+        String actualTitle = emptyTemplatePage.getDriver().getTitle();
+        Assert.assertEquals(actualTitle,title);
     }
 
     @Step()
     public void theContentMatches(){
-        softly.assertThat(emptyTemplatePage.contentParagraph.getTextContent().matches(TestDataContainer.content));
-        System.out.println(emptyTemplatePage.contentParagraph.getTextContent());
+        Assert.assertEquals(emptyTemplatePage.contentParagraph.getTextContent(),TestDataContainer.content);
     }
 
     @Step()
     public void clickAndVerifyButton(String button){
         if(button == "Blue") {
-        Assert.assertFalse(emptyTemplatePage.blueButton.getTextContent().isEmpty());
+            Assert.assertFalse(emptyTemplatePage.blueButton.getTextContent().length() == 0);
         } else if (button == "Red") {
-            Assert.assertFalse(emptyTemplatePage.redButton.getTextContent().isEmpty());
+            Assert.assertNotEquals(emptyTemplatePage.redButton.getTextContent().length(),0);
         } else {
-            Assert.assertFalse(emptyTemplatePage.greenButton.getTextContent().isEmpty());
+            Assert.assertNotEquals(emptyTemplatePage.greenButton.getTextContent().length(),0);
         }
     }
 
