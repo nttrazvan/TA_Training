@@ -12,6 +12,7 @@ import testdata.QueryData;
 import utils.TestUtils;
 
 public class DBTest {
+
   private Logger logger = LoggerFactory.getLogger(getClass().getSimpleName());
   TestUtils testUtils = new TestUtils();
   QueryData queryData = new QueryData();
@@ -32,7 +33,8 @@ public class DBTest {
     for (HashMap<String, String> row : result) {
       String name = row.get("name");
       logger.info("The found name is: " + name);
-      assertTrue(expectedName.contains(name), "Name does not match the expected name" + expectedName);
+      assertTrue(expectedName.contains(name),
+          "Name does not match the expected name" + expectedName);
     }
   }
 }
