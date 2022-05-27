@@ -24,15 +24,15 @@ Feature: Empty feature scenario for learning
 
   @SomeTag3 @Web
   Scenario: This is a simple scenario that involves a browser
-    Given I open the browser to "https://www.google.com/en"
+    Given I open the browser to the page "https://www.google.com/en"
     When I dismiss the privacy policy
     And I search for the string "summer"
     Then The results contain "summer"
 
 
   @SomeTagDemo
-  Scenario Outline: This is a scenario outline that uses more elements
-    Given I open the browser to "http://the-internet.herokuapp.com/challenging_dom"
+  Scenario Outline: This is a scenario outline that uses multiple elements
+    Given I open the browser to the page "http://the-internet.herokuapp.com/challenging_dom"
     Given The title is "The Internet"
     And The content matches
     When I click the "Blue" button and verify it has text

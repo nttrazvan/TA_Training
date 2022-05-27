@@ -1,12 +1,8 @@
 package Cucumber.CucumberUtils.pages;
-
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-
-import java.util.List;
 
 public class ValueListsOverviewPage extends PageObject {
 
@@ -44,8 +40,6 @@ public class ValueListsOverviewPage extends PageObject {
     public WebElementFacade viewFaxnummerButton;
     @FindBy(css = "a[href='/tpr/tpr/values-lists-management/edit/2']")
     public WebElementFacade editFaxnummerButton;
-
-
 }
 
 

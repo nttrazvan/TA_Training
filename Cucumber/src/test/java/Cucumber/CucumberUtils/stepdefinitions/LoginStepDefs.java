@@ -1,5 +1,4 @@
 package Cucumber.CucumberUtils.stepdefinitions;
-
 import Cucumber.CucumberUtils.pages.LoginPage;
 import Cucumber.CucumberUtils.steps.LoginSteps;
 import io.cucumber.java.Before;
@@ -10,9 +9,7 @@ import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.util.EnvironmentVariables;
 import net.thucydides.core.util.SystemEnvironmentVariables;
 import org.junit.AfterClass;
-
 import java.io.IOException;
-
 import static net.thucydides.core.webdriver.ThucydidesWebDriverSupport.getDriver;
 
 public class LoginStepDefs {

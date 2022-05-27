@@ -1,12 +1,12 @@
 package Cucumber.CucumberUtils.steps;
-
+import Cucumber.CucumberUtils.pages.DashboardPage;
 import Cucumber.CucumberUtils.pages.LoginPage;
 import net.thucydides.core.annotations.Step;
-
 import static net.thucydides.core.webdriver.ThucydidesWebDriverSupport.getDriver;
 
 public class LoginSteps {
     private LoginPage loginPage;
+    private DashboardPage dashboardPage;
 
     @Step()
     public void openLoginPage(String url) {
@@ -15,12 +15,16 @@ public class LoginSteps {
 
     @Step()
     public void inputUsername(String something) {
-        loginPage.usernameInput.sendKeys(something);
+        if(!dashboardPage.dashboardButton.isVisible()) {
+            loginPage.usernameInput.sendKeys(something);
+        }
     }
 
     @Step()
     public void inputPassword(String something) {
-        loginPage.passwordInput.sendKeys(something);
-        loginPage.submitButton.submit();
+        if(!dashboardPage.dashboardButton.isVisible()) {
+            loginPage.passwordInput.sendKeys(something);
+            loginPage.submitButton.submit();
+        }
     }
 }

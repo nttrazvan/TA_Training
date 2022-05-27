@@ -28,11 +28,10 @@ public class ValueListsOverviewSteps {
     }
 
     @Step
-    public void verifyTableContent(String list1, String list2) {
+    public void verifyTableContent() {
         valueListsOverviewPage.addressList.isDisplayed();
         valueListsOverviewPage.viewAddressButton.isClickable();
         valueListsOverviewPage.editAddressButton.isClickable();
-
         valueListsOverviewPage.faxnummerList.isDisplayed();
         valueListsOverviewPage.viewFaxnummerButton.isClickable();
         valueListsOverviewPage.editFaxnummerButton.isClickable();

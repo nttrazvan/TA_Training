@@ -1,5 +1,4 @@
 package Cucumber.CucumberUtils.stepdefinitions;
-
 import Cucumber.CucumberUtils.pages.EmptyTemplatePage;
 import Cucumber.CucumberUtils.steps.EmptyTemplateSteps;
 import io.cucumber.java.Before;
@@ -13,7 +12,6 @@ import net.thucydides.core.util.EnvironmentVariables;
 import net.thucydides.core.util.SystemEnvironmentVariables;
 import org.junit.AfterClass;
 import java.io.IOException;
-
 import static net.thucydides.core.webdriver.ThucydidesWebDriverSupport.getDriver;
 
 public class EmptyTemplateStepDefs {
@@ -38,6 +36,11 @@ public class EmptyTemplateStepDefs {
 
     @Steps
     private EmptyTemplateSteps emptyTemplateSteps;
+
+    @Given("I open the browser to the page {string}")
+    public void openBrowser(String url) {
+        emptyTemplateSteps.navigate(url);
+    }
 
     @When("This is an empty template without parameters")
     public void emptyTemplateNoParameter() {

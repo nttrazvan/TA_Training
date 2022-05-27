@@ -1,8 +1,9 @@
 package Cucumber.CucumberUtils.pages;
-
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
+import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class AktePage extends PageObject {
@@ -14,20 +15,41 @@ public class AktePage extends PageObject {
     @FindBy(id = "button-7")
     public WebElementFacade createRBButton;
 
-    @FindBy( xpath= "//button[contains(text),'p-dropdown-trigger ng-tns-c87-1']")
-    public WebElementFacade anredeDropdownButton;
+    @FindBy( css= "form>div:nth-child(1) isy-form-wrapper p-dropdown")
+    public WebElementFacade dropdown;
 
-    @FindBy( xpath= "//*[@id=\"wizard-tab-0\"]/div/tpr-dynamic-component-loader/tpr-form-rechtbeistande-personal-data/div/form/div[3]/isy-form-wrapper/div/div[2]/div/tpr-input/div/input")
+    @FindBy( xpath= "//li/span[contains(text(),'Frau')]")
+    public WebElementFacade anredeDropdownFrau;
+
+    @FindBy( xpath= "//li/span[contains(text(),'Verteidigung')]")
+    public WebElementFacade roleDropdownVerteidigung;
+
+    @FindBy( xpath= "//tpr-input[@inputid='vorname']/div/input")
     public WebElementFacade inputVorname;
 
-    @FindBy( xpath= "//*[@id=\"wizard-tab-0\"]/div/tpr-dynamic-component-loader/tpr-form-rechtbeistande-personal-data/div/form/div[3]/isy-form-wrapper/div/div[2]/isy-error-tooltip-icon/span/isy-tooltip/span/span")
-    public WebElementFacade tooltipVorname;
-
-    @FindBy( xpath= "//*[@id=\"wizard-tab-0\"]/div/tpr-dynamic-component-loader/tpr-form-rechtbeistande-personal-data/div/form/div[4]/isy-form-wrapper/div/div[2]/div/tpr-input/div/input")
+    @FindBy( xpath= "//tpr-input[@inputid='name']/div/input")
     public WebElementFacade inputName;
 
-    @FindBy( xpath= "/html/body/modal-container/div/div/tpr-dynamic-modal-component/isy-modal/div[2]/div[2]/div/tpr-dynamic-component-loader/tpr-dynamic-wizard-rechtsbeistand-create/tpr-dynamic-wizard/isy-wizard/div/button[2]")
+    @FindBy( xpath= "//button[contains(text(),'Weiter')]")
     public WebElementFacade buttonWeiter;
+
+    public void locateNameSecondStep (String firstName) {
+        WebElementFacade nameSecondStep = find(By.xpath("//div[contains(text(),'" + firstName + "')]"));
+        nameSecondStep.getText();
+        Assert.assertEquals("Liana Chis",nameSecondStep.getText());
+    }
+    @FindBy( id= "input-1")
+    public WebElementFacade beginDate;
+
+    @FindBy( id= "input-2")
+    public WebElementFacade endDate;
+
+    @FindBy( xpath= "//tpr-akte//p[contains(text(),'Rechtsbeist')]")
+    public WebElementFacade counter;
+
+    @FindBy( xpath= "//button[contains(text(),'Speichern')]")
+    public WebElementFacade saveButton;
+
 }
 
 

@@ -1,7 +1,5 @@
 package Cucumber.CucumberUtils.stepdefinitions;
-import Cucumber.CucumberUtils.pages.ValueListsOverviewPage;
 import Cucumber.CucumberUtils.steps.AkteSteps;
-import Cucumber.CucumberUtils.steps.ValueListsOverviewSteps;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -17,19 +15,73 @@ public class AkteStepDefs {
         akteSteps.openAktePage(url);
     }
 
-    @Then("I press the creation button of RB")
+    @And("I save the counter before creation")
+    public void saveCounter() {
+        akteSteps.getCounter();
+    }
+
+    @And("I press the creation button of RB")
     public void pressCreationButton() {
         akteSteps.pressCreationButtonRB();
     }
 
-    @Then("I open the dropdown Anrede")
-    public void openDropwdownAnrede() {
-        akteSteps.openDropdownAnrede();
+    @And("I select an option in the dropdown Anrede")
+    public void inputAnrede() {
+        akteSteps.selectAnrede();
     }
 
-    @When("I validate the fields {string} and {string}")
-    public void validateStandardInput(String Vorname, String Name) {
-        akteSteps.validateStandardInput(Vorname, Name);
+    @When("I enter something in the fields {string} and {string}")
+    public void validateStandardInput(String vorname, String name) {
+        akteSteps.validateStandard(vorname, name);
     }
 
+    @Then("I should see the button {string}")
+    public void iShouldSeeTheButton(String weiterState) {
+     akteSteps.weiterIsEnabled(weiterState);
+    }
+
+    @Given("I press Next")
+    public void iPressNext() {
+        akteSteps.iPressSubmit();
+    }
+
+    @Then("I check the name {string}")
+    public void iCheckTheName(String firstName) {
+        akteSteps.iCheckTheName(firstName);
+    }
+
+    @And("I enter the first name {string} and the last name {string}")
+    public void iEnterTheFirstNameAndTheLastName(String firstName, String lastName) {
+        akteSteps.inputName(firstName, lastName);
+    }
+
+    @And("I select a role")
+    public void iSelectARole() {
+        akteSteps.selectRole();
+    }
+
+    @And("I enter a begin date {string}")
+    public void iEnterABeginDate(String beginDate) {
+        akteSteps.inputBeginDate(beginDate);
+    }
+
+    @And("I enter an end date {string}")
+    public void iEnterAnEndDate(String endDate) {
+        akteSteps.inputEndDate(endDate);
+    }
+
+    @And("I submit the wizard")
+    public void iSubmitTheWizard() {
+        akteSteps.submitWizard();
+    }
+
+    @And("I refresh the page")
+    public void iRefreshThePage() {
+        akteSteps.refreshPage();
+    }
+
+    @Then("I check the counter")
+    public void iCheckTheCounter() {
+        akteSteps.checkCounter();
+    }
 }

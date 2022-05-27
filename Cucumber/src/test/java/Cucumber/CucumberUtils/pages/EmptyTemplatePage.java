@@ -1,7 +1,7 @@
 package Cucumber.CucumberUtils.pages;
-
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
+import net.serenitybdd.core.pages.WebElementFacade;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import java.util.List;
@@ -24,9 +24,20 @@ public class EmptyTemplatePage extends PageObject {
     @FindBy(xpath = "//div //a/h3")
     public List<WebElement> resultsTitles;
 
-    public void navigate(String url){
-        getDriver().navigate().to(url);
-    }
+    @FindBy(xpath = "//div/p")
+    public WebElementFacade contentParagraph;
+
+    @FindBy(css = "a[class='button']")
+    public WebElementFacade blueButton;
+
+    @FindBy(css = "a[class='button alert']")
+    public WebElementFacade redButton;
+
+    @FindBy(css = "a[class='button success']")
+    public WebElementFacade greenButton;
+
+    @FindBy(id = "canvas")
+    public WebElementFacade canvas;
 
 }
 

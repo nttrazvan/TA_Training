@@ -1,5 +1,4 @@
 package Cucumber.CucumberUtils.stepdefinitions;
-import Cucumber.CucumberUtils.pages.ValueListsOverviewPage;
 import Cucumber.CucumberUtils.steps.ValueListsOverviewSteps;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
@@ -25,8 +24,8 @@ public class ValueListsStepDefs { ;
         valueListsOverviewSteps.verifyTableHeader(col1, col2, col3);
     }
 
-    @And("I verify the table content {string}, {string} and the buttons")
-    public void verifyTableContent(String list1, String list2) {
-        valueListsOverviewSteps.verifyTableContent(list1,list2);
+    @And("I verify the table content Adressmuster und -hinweise, Faxnummer and the buttons")
+    public void verifyTableContent() {
+        valueListsOverviewSteps.verifyTableContent();
     }
 }

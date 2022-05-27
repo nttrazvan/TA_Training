@@ -13,4 +13,4 @@ Feature: Scenario to test the Value Lists Overview
     Then The page title is "Wertelisten Übersicht - Transparenzregister"
     And The table title is "Wertelisten Übersicht"
     Then The table header contains "Bezeichnung Werteliste", "Typ" and "Aktionen"
-    And I verify the table content "Adressmuster und -hinweise", "Faxnummer" and the buttons
+    And I verify the table content Adressmuster und -hinweise, Faxnummer and the buttons

@@ -1,10 +1,11 @@
 package Cucumber.CucumberUtils.steps;
-
 import Cucumber.CucumberUtils.pages.EmptyTemplatePage;
+import Cucumber.TestDataContainer.TestDataContainer;
 import net.thucydides.core.annotations.Step;
 import org.assertj.core.api.SoftAssertions;
+import org.junit.Assert;
 import org.openqa.selenium.WebElement;
-
+import static net.thucydides.core.webdriver.ThucydidesWebDriverSupport.getDriver;
 import static org.junit.Assert.assertEquals;
 
 public class EmptyTemplateSteps {
@@ -25,7 +26,7 @@ public class EmptyTemplateSteps {
 
     @Step()
     public void navigate(String url){
-        emptyTemplatePage.navigate(url);
+        getDriver().navigate().to(url);
     }
 
     @Step()
@@ -50,6 +51,7 @@ public class EmptyTemplateSteps {
 
     @Step()
     public void checkHeader(String header){
+
     }
 
     @Step()
@@ -58,17 +60,28 @@ public class EmptyTemplateSteps {
 
     @Step()
     public void checkTitle(String title){
+        softly.assertThat(emptyTemplatePage.getDriver().getTitle()).contains(title);
+        System.out.println(getDriver().getTitle());
     }
 
     @Step()
     public void theContentMatches(){
+        softly.assertThat(emptyTemplatePage.contentParagraph.getTextContent().matches(TestDataContainer.content));
+        System.out.println(emptyTemplatePage.contentParagraph.getTextContent());
     }
 
     @Step()
     public void clickAndVerifyButton(String button){
+        if(button == "Blue") {
+        Assert.assertFalse(emptyTemplatePage.blueButton.getTextContent().isEmpty());
+        } else if (button == "Red") {
+            Assert.assertFalse(emptyTemplatePage.redButton.getTextContent().isEmpty());
+        } else {
+            Assert.assertFalse(emptyTemplatePage.greenButton.getTextContent().isEmpty());
+        }
     }
 
-    @Step()
+        @Step()
     public void iVerifyCanvasHasNumbers(){
     }
 

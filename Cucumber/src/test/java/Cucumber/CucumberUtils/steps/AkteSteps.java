@@ -1,12 +1,8 @@
 package Cucumber.CucumberUtils.steps;
-
 import Cucumber.CucumberUtils.pages.AktePage;
-import Cucumber.CucumberUtils.pages.ValueListsOverviewPage;
-import Cucumber.TestDataContainer.RBCreactionDataContainer;
-import com.ibm.icu.impl.Assert;
 import net.thucydides.core.annotations.Step;
 import org.assertj.core.api.SoftAssertions;
-
+import org.junit.Assert;
 import static net.thucydides.core.webdriver.ThucydidesWebDriverSupport.getDriver;
 
 public class AkteSteps {
@@ -20,33 +16,86 @@ public class AkteSteps {
     }
 
     @Step()
+    public String getCounter() {
+      String counterBeforeCreation = aktePage.counter.getText();
+      return counterBeforeCreation;
+    }
+
+    @Step()
     public void pressCreationButtonRB() {
         aktePage.createRBButton.click();
     }
 
     @Step()
-    public void openDropdownAnrede() {
-        aktePage.anredeDropdownButton.click();
+    public void selectAnrede() {
+        aktePage.dropdown.click();
+        aktePage.anredeDropdownFrau.click();
     }
 
     @Step
-    public void validateStandardInput(String hundredAndOneChar, String hundredChar) {
-        aktePage.inputVorname.typeAndTab(Vorname);
-        aktePage.inputName.typeAndTab(Name);
-        aktePage.buttonWeiter.isDisabled();
+    public void validateStandard(String vorname, String name) {
+        aktePage.inputVorname.clear();
+        aktePage.inputVorname.typeAndTab(vorname);
+        aktePage.inputName.clear();
+        aktePage.inputName.typeAndTab(name);
     }
-//    @Step()
-//    public void validateStandardInput() {
-//        //Invalid input
-//        aktePage.inputVorname.typeAndTab(RBCreactionDataContainer.hundredAndOneChar);
-//        aktePage.inputName.typeAndTab(RBCreactionDataContainer.hundredAndOneChar);
-//        aktePage.buttonWeiter.isDisabled();
-//        //Valid input
-//        aktePage.inputVorname.typeAndTab(RBCreactionDataContainer.hundredChar);
-//        aktePage.inputName.typeAndTab(RBCreactionDataContainer.hundredChar);
-//        aktePage.buttonWeiter.click();
-//        //Validate tootlip missing
-//        System.out.println(aktePage.tooltipVorname.getAttribute("value"));
-//    }
 
+    @Step
+    public void inputName(String firstName, String lastName) {
+        aktePage.inputVorname.typeAndTab(firstName);
+        aktePage.inputName.typeAndTab(lastName);
+    }
+
+    @Step
+    public void weiterIsEnabled(String weiterState) {
+        if (weiterState.equals("disabled")) {
+            Assert.assertTrue(aktePage.buttonWeiter.isDisabled());
+        } else {
+            Assert.assertTrue(aktePage.buttonWeiter.isEnabled());
+        }
+    }
+
+    @Step
+    public void iPressSubmit() {
+        aktePage.buttonWeiter.click();
+    }
+
+    @Step
+    public void iCheckTheName(String firstName) {
+        aktePage.locateNameSecondStep(firstName);
+    }
+
+    @Step()
+    public void selectRole() {
+        aktePage.dropdown.click();
+        aktePage.roleDropdownVerteidigung.click();
+    }
+
+    @Step()
+    public void inputBeginDate(String beginDate) {
+        aktePage.beginDate.typeAndTab(beginDate);
+
+    }
+
+    @Step()
+    public void inputEndDate(String endDate) {
+        aktePage.endDate.typeAndTab(endDate);
+    }
+
+    @Step()
+    public void submitWizard() {
+        aktePage.saveButton.click();
+    }
+
+    @Step()
+    public void refreshPage() {
+        getDriver().navigate().refresh();
+    }
+
+    @Step()
+    public void checkCounter() {
+       String counterAfterCreation = aktePage.counter.getText();
+        Assert.assertNotEquals(getCounter(),counterAfterCreation);
+        System.out.println(counterAfterCreation);
+    }
 }
