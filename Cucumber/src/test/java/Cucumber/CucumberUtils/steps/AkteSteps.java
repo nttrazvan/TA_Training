@@ -98,4 +98,8 @@ public class AkteSteps {
         Assert.assertNotEquals(getCounter(),counterAfterCreation);
         System.out.println(counterAfterCreation);
     }
+
+    public void setAktePage(AktePage aktePage) {
+        this.aktePage = aktePage;
+    }
 }

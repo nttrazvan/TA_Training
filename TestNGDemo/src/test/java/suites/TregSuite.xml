@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Treg Test Suite">
+    <test verbose="2" preserve-order="true" name="C:/Repos/TA_Training/TA_Training/TestNGDemo/src/test/java/suites">
+        <groups>
+            <run>
+                <include name="availability"/>
+                <include name="findSubmitButton"/>
+                <include name="login"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="tests.availabilityOfTheSystemTest">
+                <methods>
+                    <include name="availabilityOfTheSystem"/>
+                </methods>
+            </class>
+            <class name="tests.findSubmitButtonTest">
+                <methods>
+                    <include name="findSubmitButton"/>
+                </methods>
+            </class>
+            <class name="tests.loginTest">
+                <methods>
+                    <include name="login"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+    <test verbose="2" preserve-order="true" name="C:/Repos/TA_Training/TA_Training/TestNGDemo">
+        <groups>
+            <run>
+                <include name="navi"/>
+                <include name="validateCredentialsInput"/>
+            </run>
+        </groups>
+        <classes>
+            <class name="tests.naviTest">
+                <methods>
+                    <include name="navigation"/>
+                </methods>
+            </class>
+            <class name="tests.validateCredentialsInputTest">
+                <methods>
+                    <include name="validateCredentialsInput"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

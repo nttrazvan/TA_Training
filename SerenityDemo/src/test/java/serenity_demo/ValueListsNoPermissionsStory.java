@@ -7,7 +7,8 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
 import org.openqa.selenium.WebDriver;
-import serenity_demo.steps.TregSteps;
+import serenity_demo.steps.GenericSteps;
+import serenity_demo.steps.LoginSteps;
 import serenity_demo.testData.TregTestData;
 
 @Story(ValueListsNoPermissionsStory.class)
@@ -20,20 +21,21 @@ public class ValueListsNoPermissionsStory {
     public WebDriver webDriver;
 
     @Steps
-    private TregSteps tregSteps;
+    private LoginSteps loginSteps;
+    private GenericSteps genericSteps;
 
     @Before
     public void init() {
-        tregSteps.open("http://localhost:8080/tpr/tpr/dashboard");
-        tregSteps.inputUsername(TregTestData.limitedRightsUsername);
-        tregSteps.inputPassword(TregTestData.limitedRightsPassword);
+        loginSteps.open("http://localhost:8080/tpr/tpr/dashboard");
+        loginSteps.inputUsername(TregTestData.limitedRightsUsername);
+        loginSteps.inputPassword(TregTestData.limitedRightsPassword);
     }
 
     @Test
     @WithTag("CheckPermissions")
     @Title("Test the permissions for value lists")
     public void PermissionsTest() {
-        tregSteps.openMenu();
-        tregSteps.checkValueListsOverview();
+        genericSteps.openMenu();
+        genericSteps.checkValueListsOverview();
     }
 }
