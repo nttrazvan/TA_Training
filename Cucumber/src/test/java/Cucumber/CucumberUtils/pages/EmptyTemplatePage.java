@@ -36,6 +36,9 @@ public class EmptyTemplatePage extends PageObject {
     @FindBy(css = "a[class='button success']")
     public WebElementFacade greenButton;
 
+    @FindBy(xpath = "//thead")
+    public List<WebElement> tableHeader;
+
     @FindBy(id = "canvas")
     public WebElementFacade canvas;
 

@@ -32,4 +32,8 @@ public class QueryData {
   public String getCreationDate(String name) {
     return "SELECT createdOn FROM users WHERE name = '" + name + "'";
   }
+
+  public String getUpdatedUser(String name) {
+    return "SELECT email FROM users WHERE name = '" + name + "'";
+  }
 }

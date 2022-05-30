@@ -1,25 +1,25 @@
 package tests;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import testdata.QueryData;
 import utils.TestUtils;
-
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.HashMap;
 import java.util.List;
-import java.util.regex.Pattern;
-
-import static org.testng.Assert.assertTrue;
+import java.util.Locale;
+import static org.testng.Assert.*;
 
 public class ExerciseDBTest {
 
   private Logger logger = LoggerFactory.getLogger(getClass().getSimpleName());
   TestUtils testUtils = new TestUtils();
   QueryData queryData = new QueryData();
-  @BeforeTest
+  @BeforeTest (groups = {"createUser"})
   public void createUser() {
     String name = "lianaChis";
     String password = "safePassword";
@@ -27,38 +27,29 @@ public class ExerciseDBTest {
     testUtils.insertNewEntry(queryData.insertNewUser(name, password, isUserActive));
   }
 
-  @Test
-  public void timeStampFormatValidation(String time) {
-    //validated the json schema for adding a new pet
-  }
-
-  @Test
-  public boolean checkUserCreationDate() {
+  @Test(groups = {"timeStampValidation"})
+  public void timeStampFormatValidation() {
     String name = "testUser";
     List<HashMap<String, String>> result = testUtils
             .resultList(queryData.getCreationDate(name));
     for (HashMap<String, String> row : result) {
       String creationDate = row.get("createdOn");
-//      logger.info("The creation date is is: " + creationDate);
-//      assertTrue(result.matches(creationDate),
-//              "Date does not match the expected date" + expectedCreationDateForName);
-      SimpleDateFormat format = new java.text.SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSSS-SS");
-      try{
-        format.parse(creationDate);
-        Pattern p = Pattern.compile("^\\d{4}-?\\d{1,2}-?\\d{1,2} \\d{1,2}:\\d{1,2}:\\d{1,2}[.]?\\d{1,6}$");
-        return p.matcher(creationDate).matches();
-      }
-      catch(ParseException e)
-      {
-        return false;
+      logger.info("The creation date is: " + creationDate);
+      LocalDateTime ldt = null;
+      DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH);
+      try {
+        ldt = LocalDateTime.parse(creationDate, formatter);
+        String formatedDate = ldt.format(formatter);
+        logger.info("Expected format: "+formatedDate);
+        assertEquals(formatedDate, creationDate, "DB format does not match expected format");
+      } catch (DateTimeParseException e) {
+        e.printStackTrace();
+        fail();
       }
     }
-    return false;
   }
 
-
-
-  @Test
+  @Test(groups = {"updateUser"})
   public void updateUser() {
     //update the user email and validate that it was updated
       String email = "email@email.com";
@@ -66,11 +57,31 @@ public class ExerciseDBTest {
       testUtils.updateEntry(queryData.updateEmailUser(email, name));
     }
 
-  @Test
+  @Test(groups = {"updateUser"})
+  public void validateUserUpdate() {
+    //update the user email and validate that it was updated
+    String name = "lianaChis";
+    String expectedEmail = "email@email.com";
+    List<HashMap<String, String>> result = testUtils
+            .resultList(queryData.getUpdatedUser(name));
+    for (HashMap<String, String> row : result) {
+      String email = row.get("email");
+      logger.info("The email of the user is: " + email);
+      assertEquals(email, expectedEmail, "Email does not match the expected email" + expectedEmail);
+    }
+  }
+
+  @AfterTest(groups = {"deleteUser"})
   public void deleteUser() {
     //delete the created user and validate that it was deleted
     String name = "lianaChis";
     testUtils.deleteEntry(queryData.deleteUser(name));
   }
 
+  @AfterTest(groups = {"deleteUser"})
+  public void validateUserDeletion() {
+    //update the user email and validate that it was updated
+    String name = "lianaChis";
+    testUtils.deleteEntry(queryData.deleteUser(name));
+  }
 }

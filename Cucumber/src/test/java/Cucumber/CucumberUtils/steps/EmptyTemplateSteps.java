@@ -51,11 +51,16 @@ public class EmptyTemplateSteps {
 
     @Step()
     public void checkHeader(String header){
-
+         for(WebElement element : emptyTemplatePage.tableHeader) {
+            softly.assertThat(element.getAttribute("textContent")).contains(header);
+             System.out.println("The header is: " + element.getAttribute("textContent"));
+        }
+        softly.assertAll();
     }
 
     @Step()
     public void tableContains(String Index, String col1, String col2, String col3, String col4, String col5, String col6, String col7) throws InterruptedException {
+
     }
 
     @Step()
