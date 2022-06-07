@@ -148,7 +148,7 @@
             <a href="capabilities.html"><i class="bi bi-journal-text"></i> Requirements</a>
         </li>
     </ul>
-    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 30-05-2022 10:59</span>
+    <span class="date-and-time"><a href="build-info.html"><i class="bi bi-info-circle"></i></a> Report generated 07-06-2022 12:48</span>
     <br style="clear:left"/>
 </div>
 
@@ -219,7 +219,7 @@
         <div class="table">
             <div class="row">
                 <div class="col-sm-10" style="padding-left:1.5em; padding-top:0.5em; padding-bottom:0.5em;">
-                    <span class="error-message error-message-title">Javascript exception: javascript error: Unable to find owning document</span>
+                    <span class="error-message error-message-title">Timeout exception: Expected condition failed: waiting for element to be clickable: DashboardPage.menuButton (tried for 5 second(s) with 500 milliseconds interval)</span>
                 </div>
                 <div class="col-sm-2">
                     <a class="btn btn-warning details-button" data-toggle="collapse" href="#stacktraceModal-overall"
@@ -235,24 +235,31 @@
         <div class="collapse multi-collapse" id="stacktraceModal-overall">
             <div class="card">
                 <div class="card-header">
-                    <h4>org.openqa.selenium.JavascriptException </h4>
+                    <h4>org.openqa.selenium.TimeoutException </h4>
                 </div>
                 <div class="card-body">
                     <div>
-                        <pre>serenity_demo.steps.LoginSteps.inputPassword(LoginSteps.java:23)<br />serenity_demo.ValueListsStory.init(ValueListsStory.java:34)<br /></pre>
+                        <pre>serenity_demo.steps.GenericSteps.openMenu(GenericSteps.java:17)<br />serenity_demo.ValueListsStory.T01valueListsOverviewTest(ValueListsStory.java:46)<br /></pre>
                     </div>
 
+                    <h4>
+                        Caused by: org.openqa.selenium.NoSuchElementException
+                    </h4>
+                    <div>
+                            <pre>Timed out after 4 seconds. Element not found<br>For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element<br>Build info: version: '4.1.2', revision: '9a5a329c5a'<br>System info: host: 'PC311177', ip: '192.168.0.170', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '18.0.1.1'<br>Driver info: driver.version: unknown</pre>
+                        <pre>serenity_demo.steps.GenericSteps.openMenu(GenericSteps.java :17)<br />serenity_demo.ValueListsStory.T01valueListsOverviewTest(ValueListsStory.java :46)<br /></pre>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
                 <div class="panel-body">
-                    <a href="pagesource7792638404073907611.html" target="_blank" class="btn btn-info">HTML Source</a>
+                    <a href="pagesource3119963172960202516.html" target="_blank" class="btn btn-info">HTML Source</a>
                 </div>
             </div>
         <div class="slider-wrapper theme-default">
             <div id="slider">
-                <img src="b364a25f86e42a1a63e1ff39176a8cc34e1c26d64f11d48a99bd937c879e2904.png" title=" STEP: I input the password and submit: <span class='error-color'>ERROR</span>" width="929"/>
+                <img src="a35fc4d29262f2f066ddc946c48b36ca5f929b412bd3a0f985dd4715ec673a56.png" title=" STEP: I open the menu: <span class='error-color'>ERROR</span>" width="1920"/>
             </div>
         </div>
 

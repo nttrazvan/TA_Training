@@ -19,7 +19,7 @@ import serenity_demo.testData.TregTestData;
 public class ValueListsStory {
 
     @Managed(uniqueSession = true)
-    public WebDriver webDriver = new ChromeDriver();
+    public WebDriver webDriver;
 
     @Steps
     private LoginSteps loginSteps;
