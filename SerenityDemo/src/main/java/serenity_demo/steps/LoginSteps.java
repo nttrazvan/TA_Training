@@ -10,13 +10,9 @@ import serenity_demo.pages.LoginPage;
 import java.time.Duration;
 
 public class LoginSteps extends ScenarioSteps {
+
     private LoginPage loginPage;
-    @NotNull
-    @Contract(" -> new")
-    @Override
-    public final WebDriverWait wait() {
-        return new WebDriverWait(getDriver(), Duration.ofSeconds(5));
-    }
+    private WebDriverWait wait;
 
     @Step("Open page")
     public void open(String url) {

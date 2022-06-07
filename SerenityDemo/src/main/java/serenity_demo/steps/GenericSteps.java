@@ -3,19 +3,17 @@ import com.ibm.icu.impl.Assert;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import serenity_demo.Helpers;
 import serenity_demo.pages.DashboardPage;
-
-import java.time.Duration;
 
 public class GenericSteps extends ScenarioSteps {
     private DashboardPage dashboardPage;
-    private WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(5));
+    private Helpers helpers;
 
 
     @Step("STEP: I open the menu")
-    public void openMenu(){
-        wait.until(ExpectedConditions.elementToBeClickable(dashboardPage.menuButton));
+    public void openMenu()  {
+        helpers.wait.until(ExpectedConditions.elementToBeClickable(dashboardPage.menuButton));
         dashboardPage.menuButton.click();
     }
 
