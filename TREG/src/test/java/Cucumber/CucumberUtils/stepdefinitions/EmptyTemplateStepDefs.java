@@ -1,4 +1,4 @@
-package Cucumber.CucumberUtils.stepsdefinitions;
+package Cucumber.CucumberUtils.stepdefinitions;
 import Cucumber.CucumberUtils.pages.EmptyTemplatePage;
 import Cucumber.CucumberUtils.steps.EmptyTemplateSteps;
 import io.cucumber.java.Before;

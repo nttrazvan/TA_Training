@@ -3,12 +3,16 @@ import Cucumber.CucumberUtils.pages.ValueListsOverviewPage;
 import com.ibm.icu.impl.Assert;
 import net.thucydides.core.annotations.Step;
 import org.assertj.core.api.SoftAssertions;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import static net.thucydides.core.webdriver.ThucydidesWebDriverSupport.getDriver;
 
 public class ValueListsOverviewSteps {
     private ValueListsOverviewPage valueListsOverviewPage;
     private SoftAssertions softly = new SoftAssertions();
 
+    private Logger logger = LoggerFactory.getLogger(getClass().getSimpleName());
 
     @Step()
     public void checkTitle(String something){
@@ -35,5 +39,31 @@ public class ValueListsOverviewSteps {
         valueListsOverviewPage.faxnummerList.isDisplayed();
         valueListsOverviewPage.viewFaxnummerButton.isClickable();
         valueListsOverviewPage.editFaxnummerButton.isClickable();
+    }
+    //Table standard design
+    @Step
+    public void checkPaginator() {
+        valueListsOverviewPage.paginator.isDisplayed();
+    }
+
+    @Step
+    public void checkSortingWorks() {
+        logger.info("The sorting type is: " + valueListsOverviewPage.tableHeaderFirstColumn.getAttribute("aria-sort"));
+        valueListsOverviewPage.sortingButton.click();
+        logger.info("The sorting type is: " + valueListsOverviewPage.tableHeaderFirstColumn.getAttribute("aria-sort"));
+        softly.assertThat(valueListsOverviewPage.tableHeaderFirstColumn.getAttribute("aria-sort").equals("ascending"));
+        valueListsOverviewPage.sortingButton.click();
+        logger.info("The sorting type is: " + valueListsOverviewPage.tableHeaderFirstColumn.getAttribute("aria-sort"));
+        softly.assertThat(valueListsOverviewPage.tableHeaderFirstColumn.getAttribute("aria-sort").equals("decending"));
+    }
+
+    @Step
+    public void filterLine() {
+        logger.info("I press the filter button");
+        valueListsOverviewPage.filteringButton.click();
+        logger.info("I check the filter line appears");
+        softly.assertThat(valueListsOverviewPage.filterLine.isPresent());
+        valueListsOverviewPage.inputFilterLine.typeAndTab("test");
+
     }
 }

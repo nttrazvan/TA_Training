@@ -1,4 +1,4 @@
-package Cucumber.CucumberUtils.stepsdefinitions;
+package Cucumber.CucumberUtils.stepdefinitions;
 import Cucumber.CucumberUtils.steps.AkteSteps;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;

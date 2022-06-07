@@ -1,4 +1,4 @@
-package Cucumber.CucumberUtils.stepsdefinitions;
+package Cucumber.CucumberUtils.stepdefinitions;
 import Cucumber.CucumberUtils.pages.LoginPage;
 import Cucumber.CucumberUtils.steps.LoginSteps;
 import io.cucumber.java.Before;

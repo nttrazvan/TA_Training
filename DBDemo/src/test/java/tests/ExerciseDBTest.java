@@ -55,33 +55,20 @@ public class ExerciseDBTest {
       String email = "email@email.com";
       String name = "lianaChis";
       testUtils.updateEntry(queryData.updateEmailUser(email, name));
-    }
-
-  @Test(groups = {"updateUser"})
-  public void validateUserUpdate() {
-    //update the user email and validate that it was updated
-    String name = "lianaChis";
-    String expectedEmail = "email@email.com";
     List<HashMap<String, String>> result = testUtils
-            .resultList(queryData.getUpdatedUser(name));
-    for (HashMap<String, String> row : result) {
-      String email = row.get("email");
-      logger.info("The email of the user is: " + email);
-      assertEquals(email, expectedEmail, "Email does not match the expected email" + expectedEmail);
+            .resultList(queryData.getUserByName(name));
+    logger.info("The email " + result.get(0).get("email") + " should equal " + email);
+    assertEquals(email,result.get(0).get("email"),"The email does not match " + email);
     }
-  }
 
-  @AfterTest(groups = {"deleteUser"})
+  @Test(groups = {"deleteUser"})
   public void deleteUser() {
     //delete the created user and validate that it was deleted
-    String name = "lianaChis";
-    testUtils.deleteEntry(queryData.deleteUser(name));
-  }
-
-  @AfterTest(groups = {"deleteUser"})
-  public void validateUserDeletion() {
-    //update the user email and validate that it was updated
-    String name = "lianaChis";
-    testUtils.deleteEntry(queryData.deleteUser(name));
+    String expectedName = "lianaChis";
+    testUtils.deleteEntry(queryData.deleteUser(expectedName));
+    List<HashMap<String, String>> result = testUtils
+            .resultList(queryData.getUserByName(expectedName));
+    logger.info("The list size for " + expectedName +" is: " + result.size());
+    assertTrue(result.size() == 0);
   }
 }

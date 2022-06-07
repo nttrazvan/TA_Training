@@ -1,4 +1,4 @@
-package Cucumber.CucumberUtils.stepsdefinitions;
+package Cucumber.CucumberUtils.stepdefinitions;
 import Cucumber.CucumberUtils.steps.ValueListsOverviewSteps;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
@@ -32,5 +32,16 @@ public class ValueListsStepDefs { ;
     @And("I check that a paginator exists")
     public void checkPaginator() {
         valueListsOverviewSteps.checkPaginator();
+    }
+
+
+    @Then("I check that sorting works")
+    public void iCheckThatSortingWorks() {
+        valueListsOverviewSteps.checkSortingWorks();
+    }
+
+    @Then("I check the filter line appears")
+    public void iCheckTheFilterLineAppears() {
+        valueListsOverviewSteps.filterLine();
     }
 }

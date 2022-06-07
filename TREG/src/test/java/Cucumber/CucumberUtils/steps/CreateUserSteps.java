@@ -1,105 +1,42 @@
 package Cucumber.CucumberUtils.steps;
+
 import Cucumber.CucumberUtils.pages.AktePage;
+import Cucumber.CucumberUtils.pages.CreateUserPage;
+import Cucumber.CucumberUtils.pages.NavigationPage;
 import net.thucydides.core.annotations.Step;
 import org.assertj.core.api.SoftAssertions;
 import org.junit.Assert;
+
 import static net.thucydides.core.webdriver.ThucydidesWebDriverSupport.getDriver;
 
-public class AkteSteps {
-    private AktePage aktePage;
+public class CreateUserSteps {
+    CreateUserPage createUserPage;
+    NavigationPage navigationPage;
     private SoftAssertions softly = new SoftAssertions();
 
-
-    @Step()
-    public void openAktePage(String url) {
-        getDriver().navigate().to(url);
+    public CreateUserSteps() {
     }
 
     @Step()
-    public String getCounter() {
-      String counterBeforeCreation = aktePage.counter.getText();
-      return counterBeforeCreation;
+    public void navigateToUserOverview() {
+        navigationPage.menuButton.click();
+        navigationPage.userOverview.click();
     }
 
     @Step()
-    public void pressCreationButtonRB() {
-        aktePage.createRBButton.click();
+    public void openCreateUserPage() {
+        createUserPage.createUserButton.click();
     }
 
     @Step()
-    public void selectAnrede() {
-        aktePage.dropdown.click();
-        aktePage.anredeDropdownFrau.click();
-    }
-
-    @Step
-    public void validateStandard(String vorname, String name) {
-        aktePage.inputVorname.clear();
-        aktePage.inputVorname.typeAndTab(vorname);
-        aktePage.inputName.clear();
-        aktePage.inputName.typeAndTab(name);
-    }
-
-    @Step
-    public void inputName(String firstName, String lastName) {
-        aktePage.inputVorname.typeAndTab(firstName);
-        aktePage.inputName.typeAndTab(lastName);
-    }
-
-    @Step
-    public void weiterIsEnabled(String weiterState) {
-        if (weiterState.equals("disabled")) {
-            Assert.assertTrue(aktePage.buttonWeiter.isDisabled());
-        } else {
-            Assert.assertTrue(aktePage.buttonWeiter.isEnabled());
-        }
-    }
-
-    @Step
-    public void iPressSubmit() {
-        aktePage.buttonWeiter.click();
-    }
-
-    @Step
-    public void iCheckTheName(String firstName) {
-        aktePage.locateNameSecondStep(firstName);
-    }
-
-    @Step()
-    public void selectRole() {
-        aktePage.dropdown.click();
-        aktePage.roleDropdownVerteidigung.click();
-    }
-
-    @Step()
-    public void inputBeginDate(String beginDate) {
-        aktePage.beginDate.typeAndTab(beginDate);
+    public void enterUserData(String firstName, String lastName, String email, String phoneNumber, String extension, String role, String referat, String team) {
+        createUserPage.inputFirstName.sendKeys(firstName);
+        createUserPage.inputLastName.sendKeys(lastName);
+        createUserPage.inputEmail.sendKeys(email);
+        createUserPage.inputPhoneNumber.selectByValue(phoneNumber);
+        createUserPage.inputExtension.sendKeys(extension);
+        createUserPage.navigateSecondTab.click();
 
     }
 
-    @Step()
-    public void inputEndDate(String endDate) {
-        aktePage.endDate.typeAndTab(endDate);
-    }
-
-    @Step()
-    public void submitWizard() {
-        aktePage.saveButton.click();
-    }
-
-    @Step()
-    public void refreshPage() {
-        getDriver().navigate().refresh();
-    }
-
-    @Step()
-    public void checkCounter() {
-       String counterAfterCreation = aktePage.counter.getText();
-        Assert.assertNotEquals(getCounter(),counterAfterCreation);
-        System.out.println(counterAfterCreation);
-    }
-
-    public void setAktePage(AktePage aktePage) {
-        this.aktePage = aktePage;
-    }
 }

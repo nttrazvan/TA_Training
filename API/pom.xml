@@ -9,8 +9,7 @@
   <version>1.0-SNAPSHOT</version>
 
   <name>API</name>
-  <!-- FIXME change it to the project's website -->
-  <url>http://www.example.com</url>
+  <url>https://petstore.swagger.io/v2</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -20,7 +19,17 @@
   </properties>
 <dependencies>
 <!-- https://mvnrepository.com/artifact/org.testng/testng -->
-<dependency>
+  <dependency>
+    <groupId>org.slf4j</groupId>
+    <artifactId>slf4j-api</artifactId>
+    <version>1.7.36</version>
+  </dependency>
+  <dependency>
+    <groupId>org.slf4j</groupId>
+    <artifactId>slf4j-simple</artifactId>
+    <version>1.7.36</version>
+  </dependency>
+  <dependency>
   <groupId>org.testng</groupId>
   <artifactId>testng</artifactId>
   <version>7.5</version>

@@ -1,16 +1,16 @@
 package Cucumber.CucumberUtils.stepdefinitions;
-import Cucumber.CucumberUtils.pages.DashboardPage;
-import Cucumber.CucumberUtils.steps.DashboardSteps;
+import Cucumber.CucumberUtils.pages.NavigationPage;
+import Cucumber.CucumberUtils.steps.NavigationSteps;
 import io.cucumber.java.en.Given;
 import net.thucydides.core.annotations.Steps;
 
 
-public class DashboardStepDefs {
+public class NavigationStepDefs {
 
-    private DashboardPage dashboardPage;
+    private NavigationPage navigationPage;
 
     @Steps
-    private DashboardSteps dashboardSteps;
+    private NavigationSteps dashboardSteps;
 
     @Given("I navigate to the Value Lists Overview")
     public void navigateToValueListsOverview() {
