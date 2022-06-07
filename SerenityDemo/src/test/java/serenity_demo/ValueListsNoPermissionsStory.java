@@ -22,6 +22,7 @@ public class ValueListsNoPermissionsStory {
 
     @Steps
     private LoginSteps loginSteps;
+    @Steps
     private GenericSteps genericSteps;
 
     @Before

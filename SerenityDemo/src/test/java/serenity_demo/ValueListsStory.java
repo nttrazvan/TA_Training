@@ -7,6 +7,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import serenity_demo.pages.DashboardPage;
 import serenity_demo.steps.*;
 import serenity_demo.testData.TregTestData;
@@ -18,13 +19,17 @@ import serenity_demo.testData.TregTestData;
 public class ValueListsStory {
 
     @Managed(uniqueSession = true)
-    public WebDriver webDriver;
+    public WebDriver webDriver = new ChromeDriver();
 
     @Steps
     private LoginSteps loginSteps;
+    @Steps
     private DashboardSteps dashboardSteps;
+    @Steps
     private GenericSteps genericSteps;
+    @Steps
     private ValueListAddressEditSteps valueListAddressEditSteps;
+    @Steps
     private ValueListOverviewSteps valueListOverviewSteps;
 
     @Before
