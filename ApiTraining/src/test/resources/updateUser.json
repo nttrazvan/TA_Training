@@ -1,0 +1,9 @@
+{
+  "id": 1,
+  "username": "andreea",
+  "firstName": "testAndreea",
+  "lastName": "testOlariu",
+  "email": "andreea@test.com",
+  "password": "test",
+  "userStatus": 1
+}
