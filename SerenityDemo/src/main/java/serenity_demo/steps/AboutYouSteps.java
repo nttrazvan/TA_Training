@@ -19,7 +19,7 @@ public class AboutYouSteps extends ScenarioSteps {
 
     @Step("Open page")
     public void open(String url) {
-        getDriver().navigate().to(url);
+        getDriver().get(url);
     }
 
     @Step("Click buttons")
