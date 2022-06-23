@@ -6,7 +6,7 @@ Feature: Scenario to test the Value Lists Overview
 
   @ValueListsOverview @Web
     Scenario: This scenario tests the Value Lists Management component
-    Given I open the browser to "http://localhost:8080/tpr/tpr/login"
+    Given I open the browser to "https://test.isb-ag.de/tpr/tpr/login"
     When I first enter the username "User1A"
     And I then enter the password "TPRBenutzer01!" and press submit
     And I navigate to the Value Lists Overview

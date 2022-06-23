@@ -6,7 +6,7 @@ Feature: Scenario to test the creation of users
 
   @CreateUser @Web
   Scenario Outline: This scenario tests the creation of a user
-    Given I open the browser to "http://localhost:8080/tpr/tpr/login"
+    Given I open the browser to "https://test.isb-ag.de/tpr/tpr/login"
     And I first enter the username "User1A"
     And I then enter the password "TPRBenutzer01!" and press submit
     Given I navigate to the User Overview
