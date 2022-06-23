@@ -13,6 +13,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import static org.testng.Assert.*;
+//TODO remove unused imports
 
 public class ExerciseDBTest {
 
@@ -36,6 +37,8 @@ public class ExerciseDBTest {
       String creationDate = row.get("createdOn");
       logger.info("The creation date is: " + creationDate);
       LocalDateTime ldt = null;
+      //TODO remove null initializer because it is redundant
+      //TODO name variable in a suggestive way
       DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss", Locale.ENGLISH);
       try {
         ldt = LocalDateTime.parse(creationDate, formatter);
