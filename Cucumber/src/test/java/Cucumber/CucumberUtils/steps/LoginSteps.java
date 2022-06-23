@@ -3,6 +3,7 @@ import Cucumber.CucumberUtils.pages.DashboardPage;
 import Cucumber.CucumberUtils.pages.LoginPage;
 import net.thucydides.core.annotations.Step;
 import static net.thucydides.core.webdriver.ThucydidesWebDriverSupport.getDriver;
+//ToDo - add empty line between package and imports and between imports and static imports
 
 public class LoginSteps {
     private LoginPage loginPage;

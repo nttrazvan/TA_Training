@@ -11,6 +11,7 @@ import net.thucydides.core.util.SystemEnvironmentVariables;
 import org.junit.AfterClass;
 import java.io.IOException;
 import static net.thucydides.core.webdriver.ThucydidesWebDriverSupport.getDriver;
+//ToDo - add empty line between package and imports and between imports and static imports
 
 public class LoginStepDefs {
     private LoginPage loginPage;
@@ -44,7 +45,7 @@ public class LoginStepDefs {
     public void inputUsername(String something) {
         loginSteps.inputUsername(something);
     }
-
+//ToDo - rename method in StepDefs and Steps to reflect narrative
     @And("I then enter the password {string} and press submit")
     public void inputPassword(String something) {
         loginSteps.inputPassword(something);

@@ -3,9 +3,9 @@ Feature: Scenario to test the Value Lists Overview
   As an administrator
   I want to be able to manage the value lists
   Using Java, cucumber and serenity
-
+#ToDo - Given(Redirect/condition), When(Action), And(actions)..., Then(result)
   @ValueListsOverview @Web
-    Scenario: This scenario tests the Value Lists Management component
+  Scenario: This scenario tests the Value Lists Management component
     Given I open the browser to "http://localhost:8080/tpr/tpr/login"
     And I first enter the username "User1A"
     And I then enter the password "TPRBenutzer01!" and press submit
@@ -13,4 +13,5 @@ Feature: Scenario to test the Value Lists Overview
     Then The page title is "Wertelisten Übersicht - Transparenzregister"
     And The table title is "Wertelisten Übersicht"
     Then The table header contains "Bezeichnung Werteliste", "Typ" and "Aktionen"
+#    ToDo - Either add parameters for table validation or simplify name, Ex: I verify the table on x page
     And I verify the table content Adressmuster und -hinweise, Faxnummer and the buttons

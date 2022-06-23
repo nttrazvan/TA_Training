@@ -11,7 +11,7 @@ public class AktePage extends PageObject {
     public AktePage(WebDriver driver) {
         super(driver);
     }
-
+//ToDo - the identifier will break if the ui changes even a bit
     @FindBy(id = "button-7")
     public WebElementFacade createRBButton;
 
@@ -23,7 +23,7 @@ public class AktePage extends PageObject {
 
     @FindBy( xpath= "//li/span[contains(text(),'Verteidigung')]")
     public WebElementFacade roleDropdownVerteidigung;
-
+//ToDo - since the element type is tpr-input and they have inputid attribute, attempt to change to css selector, it works faster
     @FindBy( xpath= "//tpr-input[@inputid='vorname']/div/input")
     public WebElementFacade inputVorname;
 
@@ -32,7 +32,7 @@ public class AktePage extends PageObject {
 
     @FindBy( xpath= "//button[contains(text(),'Weiter')]")
     public WebElementFacade buttonWeiter;
-
+//ToDo- remove redundant getText method, return WebElementFacade and add getText() assertion in steps class file
     public void locateNameSecondStep (String firstName) {
         WebElementFacade nameSecondStep = find(By.xpath("//div[contains(text(),'" + firstName + "')]"));
         nameSecondStep.getText();

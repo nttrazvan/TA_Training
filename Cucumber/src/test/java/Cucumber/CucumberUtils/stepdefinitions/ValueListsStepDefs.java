@@ -3,6 +3,8 @@ import Cucumber.CucumberUtils.steps.ValueListsOverviewSteps;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import net.thucydides.core.annotations.Steps;
+//ToDo - add empty line between package and imports
+//Keep code style consistency
 
 public class ValueListsStepDefs { ;
     @Steps

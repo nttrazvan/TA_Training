@@ -1,5 +1,5 @@
 package Cucumber.TestDataContainer;
-
+//ToDo - if same password is used across accounts, there is no use for separation
 public class LoginDataContainer {
     public static final String fullRightsUsername1 = "User1A";
     public static final String fullRightsUsername2 = "UserG";
