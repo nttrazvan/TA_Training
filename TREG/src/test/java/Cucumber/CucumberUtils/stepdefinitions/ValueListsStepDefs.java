@@ -40,8 +40,16 @@ public class ValueListsStepDefs { ;
         valueListsOverviewSteps.checkSortingWorks();
     }
 
-    @Then("I check the filter line appears")
-    public void iCheckTheFilterLineAppears() {
-        valueListsOverviewSteps.filterLine();
+    @Then("I check that the filter for string {string} and returns following values: {string} and {string}")
+    public void iCheckTheFilterWorks(String searchString, String firstList, String secondList) throws InterruptedException {
+        valueListsOverviewSteps.filterLine(searchString);
+        valueListsOverviewSteps.tableRetrieveValues(firstList, secondList);
     }
+
+    @Then("I check that filtering and sorting can be reset through the reset button")
+    public void iCheckThatFilteringAndSortingCanBeResetThroughTheResetButton() throws InterruptedException {
+        valueListsOverviewSteps.checkResetFilterButton();
+    }
+
+
 }

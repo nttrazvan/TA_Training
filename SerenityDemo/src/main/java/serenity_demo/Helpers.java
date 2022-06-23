@@ -7,6 +7,6 @@ import java.time.Duration;
 import static net.thucydides.core.webdriver.ThucydidesWebDriverSupport.getDriver;
 
 public class Helpers {
-    public WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
+    public static WebDriverWait wait = new WebDriverWait(getDriver(), Duration.ofSeconds(10));
 
 }

@@ -6,14 +6,14 @@ Feature: Scenario to test the creation of a lawyer of type RB
 
   Background:
     Given I open the browser to "https://test.isb-ag.de/tpr/tpr/login"
-    And I first enter the username "User1S"
-    And I then enter the password "TPRBenutzer01!" and press submit
-    And Wait for the Dashboard to load
+    When I first enter the username "User1S"
+    When I then enter the password "TPRBenutzer01!" and press submit
+    Then Wait for the Dashboard to load
 
   @OpenAndValidateFirstAndLastName @Web
   Scenario Outline: This scenario tests the field validations for first name and last name
-    When I open the Akte page to "https://test.isb-ag.de/tpr/tpr/akte/1"
-    And I save the counter before creation
+    Given I open the Akte page to "https://test.isb-ag.de/tpr/tpr/akte/1"
+    When I save the counter before creation
     And I press the creation button of RB
     And I select an option in the dropdown Anrede
     And I enter something in the fields "<Vorname>" and "<Name>"
@@ -24,14 +24,17 @@ Feature: Scenario to test the creation of a lawyer of type RB
       | aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa  | aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa  | enabled  |
 
   @Create @Web
-  Scenario: This scenario tests the field validations for date fields
-    When I open the Akte page to "https://test.isb-ag.de/tpr/tpr/akte/1"
+  Scenario: This scenario tests the field validations for date fields and submits the wizard
+    Given I open the Akte page to "https://test.isb-ag.de/tpr/tpr/akte/1"
+    When I save the counter before creation
     And I press the creation button of RB
     And I select an option in the dropdown Anrede
     And I enter the first name "Liana" and the last name "Chis"
-    Given I press Next
+    When I press Next
+    And I uncheck Kanzlei and Known Address
+    And I press Next
     Then I check the name "Liana"
-    And I select a role
+    When I select a role
     And I enter a begin date "01.01.2022"
     And I enter an end date "01.10.2022"
     And I submit the wizard

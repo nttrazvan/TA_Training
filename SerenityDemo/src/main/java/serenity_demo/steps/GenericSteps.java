@@ -13,7 +13,6 @@ public class GenericSteps extends ScenarioSteps {
 
     @Step("STEP: I open the menu")
     public void openMenu()  {
-        helpers.wait.until(ExpectedConditions.elementToBeClickable(dashboardPage.menuButton));
         dashboardPage.menuButton.click();
     }
 

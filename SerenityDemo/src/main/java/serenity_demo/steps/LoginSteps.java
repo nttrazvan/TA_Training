@@ -3,8 +3,10 @@ import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import serenity_demo.Helpers;
 import serenity_demo.pages.LoginPage;
 
 import java.time.Duration;
@@ -12,7 +14,6 @@ import java.time.Duration;
 public class LoginSteps extends ScenarioSteps {
 
     private LoginPage loginPage;
-    private WebDriverWait wait;
 
     @Step("Open page")
     public void open(String url) {
@@ -28,7 +29,6 @@ public class LoginSteps extends ScenarioSteps {
     @Step("STEP: I input the password and submit")
     public void inputPassword(String something){
          loginPage.passwordInput.sendKeys(something);
-         wait.until(ExpectedConditions.elementToBeClickable(loginPage.submitButton));
          loginPage.submitButton.click();
     }
 }

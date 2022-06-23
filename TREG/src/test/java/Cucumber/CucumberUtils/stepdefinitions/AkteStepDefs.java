@@ -16,7 +16,7 @@ public class AkteStepDefs {
     }
 
     @And("I save the counter before creation")
-    public void saveCounter() {
+    public void saveCounter() throws InterruptedException {
         akteSteps.getCounter();
     }
 
@@ -81,7 +81,13 @@ public class AkteStepDefs {
     }
 
     @Then("I check the counter")
-    public void iCheckTheCounter() {
+    public void iCheckTheCounter() throws InterruptedException {
         akteSteps.checkCounter();
+    }
+
+    @And("I uncheck Kanzlei and Known Address")
+    public void iUncheckKnownAddressAndKanzlei() {
+        akteSteps.checkboxKanzlei();
+        akteSteps.checkboxAddress();
     }
 }

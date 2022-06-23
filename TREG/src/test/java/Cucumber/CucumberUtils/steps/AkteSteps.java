@@ -3,12 +3,21 @@ import Cucumber.CucumberUtils.pages.AktePage;
 import net.thucydides.core.annotations.Step;
 import org.assertj.core.api.SoftAssertions;
 import org.junit.Assert;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import static net.thucydides.core.webdriver.ThucydidesWebDriverSupport.getDriver;
 
 public class AkteSteps {
     private AktePage aktePage;
-    private SoftAssertions softly = new SoftAssertions();
 
+    private SoftAssertions softly = new SoftAssertions();
+    private Logger logger = LoggerFactory.getLogger(getClass().getSimpleName());
+    private String CounterBeforeCreation;
+    //setter
+    public void setCounterBeforeCreation(){
+        this.CounterBeforeCreation = aktePage.counter.getTextContent();
+    }
 
     @Step()
     public void openAktePage(String url) {
@@ -16,9 +25,11 @@ public class AkteSteps {
     }
 
     @Step()
-    public String getCounter() {
-      String counterBeforeCreation = aktePage.counter.getText();
-      return counterBeforeCreation;
+    public String getCounter() throws InterruptedException {
+        Thread.sleep(1000);
+        setCounterBeforeCreation();
+      logger.info("The counter before creation is: " + CounterBeforeCreation);
+        return CounterBeforeCreation;
     }
 
     @Step()
@@ -53,6 +64,14 @@ public class AkteSteps {
         } else {
             Assert.assertTrue(aktePage.buttonWeiter.isEnabled());
         }
+    }
+    @Step
+    public void checkboxKanzlei(){
+        aktePage.checkboxKanzlei.click();
+    }
+    @Step
+    public void checkboxAddress(){
+        aktePage.checkboxAddress.click();
     }
 
     @Step
@@ -93,10 +112,11 @@ public class AkteSteps {
     }
 
     @Step()
-    public void checkCounter() {
-       String counterAfterCreation = aktePage.counter.getText();
-        Assert.assertNotEquals(getCounter(),counterAfterCreation);
-        System.out.println(counterAfterCreation);
+    public void checkCounter() throws InterruptedException {
+       Thread.sleep(1000);
+        String counterAfterCreation = aktePage.counter.getTextContent();
+        logger.info("The counter after creation is: " + counterAfterCreation);
+        Assert.assertNotEquals(CounterBeforeCreation,counterAfterCreation);
     }
 
     public void setAktePage(AktePage aktePage) {

@@ -11,6 +11,6 @@ public class LoginPage extends PageObject {
     public WebElementFacade usernameInput;
     @FindBy(css = "input[autocomplete='password']")
     public WebElementFacade passwordInput;
-    @FindBy(tagName = "button")
+    @FindBy(css = "form.ng-valid button")
     public WebElementFacade submitButton;
 }
