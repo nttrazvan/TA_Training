@@ -3,11 +3,9 @@ package serenity_demo.pages;
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
-
 import java.util.List;
 
 public class EmptyTemplatePage extends PageObject {
-
     @FindBy(css = "CSS Selector goes here")
     public WebElementFacade emptyElementTemplate;
 

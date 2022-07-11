@@ -30,8 +30,7 @@ Feature: Empty feature scenario for learning
     Then The results contain "summer"
 
 
-  @SomeTagDemo
-#    @Web
+  @SomeTagDemo @Web
   Scenario Outline: This is a scenario outline that uses more elements
     Given I open the browser to "http://the-internet.herokuapp.com/challenging_dom"
     Given The title is "The Internet"
