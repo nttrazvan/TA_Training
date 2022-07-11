@@ -4,17 +4,13 @@ import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
 import java.util.ArrayList;
 import java.util.List;
 
 import static jxl.biff.FormatRecord.logger;
-import static net.thucydides.core.webdriver.ThucydidesWebDriverSupport.getDriver;
 
 public class ValueListsOverviewPage extends PageObject {
-
     //Table title
     @FindBy(css = "span.isy-panel-title")
     public WebElementFacade tableTitle;
@@ -41,21 +37,16 @@ public class ValueListsOverviewPage extends PageObject {
     // Table standard design
     @FindBy(xpath = "//div[text()='Treffer pro Seite']")
     public WebElementFacade paginator;
-
     @FindBy(xpath = "//span[text()=' Bezeichnung Werteliste']")
     public WebElementFacade sortingButton;
-
     @FindBy(css = "div.table-buttons isy-icon-button button")
     public WebElementFacade filteringButton;
-
     @FindBy(css = "tpr-table-filter-cell")
     public WebElementFacade filterLine;
-
     @FindBy(css = "input")
     public WebElementFacade inputFilterLine;
     @FindBy(css = "div.table-buttons button:nth-child(2)")
     public WebElementFacade resetFilteringButton;
-
     public List<ValueListItem> tableRetrieveValues() throws InterruptedException {
         Thread.sleep(1000);
         List<WebElement> tableRows = getDriver().findElements(By.cssSelector("p-table table tbody tr")); //numbering the rows

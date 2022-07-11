@@ -1,10 +1,7 @@
 package Cucumber.CucumberUtils.pages;
-
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
-import net.serenitybdd.core.pages.WebElementFacade;
 import org.openqa.selenium.WebElement;
-
 import java.util.List;
 
 public class TimeAndDatePage extends PageObject {
@@ -22,7 +19,6 @@ public class TimeAndDatePage extends PageObject {
     public WebElement month;
     @FindBy(css = ".next[onclick='Picker.stepMonth(1);']")
     public WebElement nextArrowMonth;
-
     @FindBy(xpath = "//div[@data-view-id='days']//tbody//a")
     public List<WebElement> days;
     @FindBy(id = "d1")
@@ -45,21 +41,16 @@ public class TimeAndDatePage extends PageObject {
     public WebElement result;
     @FindBy(xpath = "//input[@type='submit']")
     public WebElement submitButton;
-
     @FindBy(id = "linkwork")
     public WebElement countOnlyWorkdays;
     @FindBy(id = "ach")
     public WebElement dayTypesSelectButton;
-
     @FindBy(xpath = "//option[contains(@value,'1') and text()='Weekends']")
     public WebElement dayTypeWeekends;
-
     @FindBy(id = "atyp")
     public WebElement includeExcludeSelect;
-
     @FindBy(xpath = "//option[contains(@value,'1') and text()='Include only']")
     public WebElement selectIncludeOnly;
-
     @FindBy(xpath = "//option[contains(@value,'2') and text()='Public holidays (not in weekends)']")
     public WebElement selectPublicHolidays;
 }

@@ -11,7 +11,6 @@ import org.slf4j.LoggerFactory;
 
 import static org.junit.Assert.assertEquals;
 
-
 public class CreateUserSteps {
     CreateUserPage createUserPage;
     NavigationPage navigationPage;

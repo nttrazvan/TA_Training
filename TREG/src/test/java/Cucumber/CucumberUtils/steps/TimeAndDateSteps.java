@@ -7,14 +7,11 @@ import org.assertj.core.api.SoftAssertions;
 import org.junit.Assert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
-
-import static org.junit.Assert.assertEquals;
 
 public class TimeAndDateSteps {
     private TimeAndDatePage timeAndDatePage;
@@ -179,11 +176,6 @@ public class TimeAndDateSteps {
     }
 
     @Step
-    public void selectOnlyPublicHolidays(){
-        timeAndDatePage.selectPublicHolidays.click();
-    }
-
-    @Step
     public void selectOnlyWeekends(){
         timeAndDatePage.dayTypeWeekends.click();
     }
@@ -224,8 +216,6 @@ public class TimeAndDateSteps {
             }
             String result = "Calculated result: " + differenceInDays + " days";
             System.out.println(result);
-//            System.out.println("Actual " + timeAndDatePage.result.getText());
-//            Assert.assertEquals(result, timeAndDatePage.result.getText());
         } catch (ParseException e) {
             e.printStackTrace();
         } finally {
@@ -264,8 +254,6 @@ public class TimeAndDateSteps {
             }
             String result = "Calculated result: " + differenceInDays + " days";
             System.out.println(result);
-//            System.out.println("Actual " + timeAndDatePage.result.getText());
-//            Assert.assertEquals(result, timeAndDatePage.result.getText());
         } catch (ParseException e) {
             e.printStackTrace();
         } finally {

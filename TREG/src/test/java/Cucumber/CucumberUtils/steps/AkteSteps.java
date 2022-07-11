@@ -11,7 +11,6 @@ import static net.thucydides.core.webdriver.ThucydidesWebDriverSupport.getDriver
 
 public class AkteSteps {
     private AktePage aktePage;
-
     private SoftAssertions softly = new SoftAssertions();
     private Logger logger = LoggerFactory.getLogger(getClass().getSimpleName());
     private String CounterBeforeCreation;

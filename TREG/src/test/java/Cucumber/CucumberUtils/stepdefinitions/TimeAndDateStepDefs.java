@@ -23,7 +23,6 @@ public class TimeAndDateStepDefs {
     @Steps
     private TimeAndDateSteps timeAndDateSteps;
 
-
     @Before("@Web")
     public void setUp() throws IOException {
         Serenity.initializeTestSession();

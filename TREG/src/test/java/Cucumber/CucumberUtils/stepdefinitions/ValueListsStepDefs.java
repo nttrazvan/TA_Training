@@ -14,7 +14,6 @@ public class ValueListsStepDefs {
         valueListsOverviewSteps.checkPaginator();
     }
 
-
     @Then("I check that sorting works")
     public void iCheckThatSortingWorks() {
         valueListsOverviewSteps.checkSortingWorks();
@@ -30,6 +29,4 @@ public class ValueListsStepDefs {
     public void iCheckThatFilteringAndSortingCanBeResetThroughTheResetButton() throws InterruptedException {
         valueListsOverviewSteps.checkResetFilterButton();
     }
-
-
 }

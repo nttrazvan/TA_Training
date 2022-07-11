@@ -2,7 +2,6 @@ package Cucumber.CucumberUtils.stepdefinitions;
 
 import Cucumber.CucumberUtils.pages.InternetHerokuappPage;
 import Cucumber.CucumberUtils.steps.InternetHerokuappSteps;
-import io.cucumber.datatable.DataTable;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -13,19 +12,14 @@ import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.util.EnvironmentVariables;
 import net.thucydides.core.util.SystemEnvironmentVariables;
 import org.junit.AfterClass;
-
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import static net.thucydides.core.webdriver.ThucydidesWebDriverSupport.getDriver;
 
 public class InternetHeroKuappStepDefs {
     private InternetHerokuappPage internetHerokuappPage;
-
     @Steps
     private InternetHerokuappSteps internetHerokuappSteps;
-
 
     @Before("@Web")
     public void setUp() throws IOException {
@@ -48,10 +42,8 @@ public class InternetHeroKuappStepDefs {
         internetHerokuappSteps.navigate(url);
     }
 
-    @When("And the Header contains")
-    public void checkHeader(DataTable table) {
-        List<String> headers = new ArrayList<>();
-        headers.addAll(table.asList());
+    @When("And the Header contains {string}")
+    public void checkHeader(String headers) {
         internetHerokuappSteps.checkHeader(headers);
     }
 
@@ -90,5 +82,4 @@ public class InternetHeroKuappStepDefs {
         internetHerokuappSteps.checkTopRedirect(pageTitle);
         internetHerokuappSteps.navigateBack();
     }
-
 }

@@ -9,12 +9,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.util.List;
 
-import static net.thucydides.core.webdriver.ThucydidesWebDriverSupport.getDriver;
-
 public class ValueListsOverviewSteps {
     private ValueListsOverviewPage valueListsOverviewPage;
     private SoftAssertions softly = new SoftAssertions();
-
     private Logger logger = LoggerFactory.getLogger(getClass().getSimpleName());
 
     @Step
@@ -27,7 +24,7 @@ public class ValueListsOverviewSteps {
         valueListsOverviewPage.editFaxnummerButton.isClickable();
     }
 
-    //Table standard design
+    //Table defined standard design
     @Step
     public void checkPaginator() {
         valueListsOverviewPage.paginator.isDisplayed();
@@ -79,6 +76,4 @@ public class ValueListsOverviewSteps {
         logger.info("The size after reset is: " + listSizeAfterReset);
         Assert.assrt(!(listSizeBeforeReset == listSizeAfterReset));
     }
-
-
 }

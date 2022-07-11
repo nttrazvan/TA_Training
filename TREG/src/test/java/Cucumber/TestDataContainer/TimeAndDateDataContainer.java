@@ -1,7 +1,5 @@
 package Cucumber.TestDataContainer;
 
-import java.io.File;
-
 public class TimeAndDateDataContainer {
     public static final Integer January = 1;
     public static final Integer February = 2;
@@ -15,5 +13,4 @@ public class TimeAndDateDataContainer {
     public static final Integer October = 10;
     public static final Integer November = 11;
     public static final Integer December = 12;
-    public File jsonMonthData = new File("src/test/resources/Month.json");
 }

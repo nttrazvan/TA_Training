@@ -3,12 +3,10 @@ package Cucumber.CucumberUtils.pages;
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
-import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class AktePage extends PageObject {
-
     @FindBy(css = "a[href='/tpr/tpr/akte/1/create-rechsbeistand']")
     public WebElementFacade createRBButton;
     @FindBy(css = "form>div:nth-child(1) isy-form-wrapper p-dropdown")
@@ -42,7 +40,6 @@ public class AktePage extends PageObject {
     public WebElementFacade selectAnredeFrau(String anrede) {
         return find(By.xpath("//li/span[contains(text(),'" + anrede + "')]"));
     }
-
     public WebElementFacade locateNameSecondStep(String firstName) {
         return find(By.xpath("//div[contains(text(),'" + firstName + "')]"));
     }

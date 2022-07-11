@@ -10,16 +10,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
-import java.util.concurrent.TimeUnit;
 
 import static net.thucydides.core.webdriver.ThucydidesWebDriverSupport.getDriver;
-import static org.junit.Assert.assertEquals;
-import static org.openqa.selenium.support.ui.ExpectedConditions.titleIs;
 
 public class InternetHerokuappSteps {
     private InternetHerokuappPage internetHerokuappPage;
@@ -27,16 +21,15 @@ public class InternetHerokuappSteps {
     private Logger logger = LoggerFactory.getLogger(getClass().getSimpleName());
     private SoftAssertions softly = new SoftAssertions();
 
-
     @Step()
     public void navigate(String url) {
         getDriver().navigate().to(url);
     }
 
     @Step()
-    public void checkHeader(List<String> header) {
+    public void checkHeader(String headers) {
         for (WebElement element : internetHerokuappPage.tableHeader) {
-            softly.assertThat(element.getAttribute("textContent")).contains(header.get(internetHerokuappPage.tableHeader.indexOf(element)));
+            softly.assertThat(element.getAttribute("textContent")).contains((headers));
             System.out.println("The header is: " + element.getAttribute("textContent"));
         }
         softly.assertAll();
@@ -51,7 +44,7 @@ public class InternetHerokuappSteps {
                 elementIsPresent = true;
             }
         }
-        softly.assertThat(elementIsPresent).isEqualTo("True");
+        softly.assertThat(elementIsPresent).isEqualTo(true);
         softly.assertAll();
     }
 
@@ -134,10 +127,8 @@ public class InternetHerokuappSteps {
         Assert.assertTrue(newPageTitle.substring(0, 6).equals(pageTitle));
     }
 
-
     @Step()
     public void navigateBack() {
         getDriver().navigate().back();
     }
-
 }
