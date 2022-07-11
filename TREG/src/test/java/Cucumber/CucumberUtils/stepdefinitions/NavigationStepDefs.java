@@ -1,9 +1,9 @@
 package Cucumber.CucumberUtils.stepdefinitions;
+
 import Cucumber.CucumberUtils.pages.NavigationPage;
 import Cucumber.CucumberUtils.steps.NavigationSteps;
 import io.cucumber.java.en.Given;
 import net.thucydides.core.annotations.Steps;
-
 
 public class NavigationStepDefs {
 
@@ -16,6 +16,7 @@ public class NavigationStepDefs {
     public void navigateToValueListsOverview() {
         dashboardSteps.navigateToValueListsOverview();
     }
+
     @Given("Wait for the Dashboard to load")
     public void dashboardButtonIsDisplayed() {
         dashboardSteps.dashboardButtonIsDisplayed();

@@ -1,4 +1,5 @@
 package Cucumber.CucumberUtils.pages;
+
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
@@ -60,20 +61,20 @@ public class ValueListsOverviewPage extends PageObject {
         List<WebElement> tableRows = getDriver().findElements(By.cssSelector("p-table table tbody tr")); //numbering the rows
         List<ValueListItem> elementsFromTable = new ArrayList<>(); // create empty list of objects
         logger.info(String.valueOf(tableRows.size()) + " elements found.");
-        for(WebElement element: tableRows) {
+        for (WebElement element : tableRows) {
             List<WebElement> listOfDataCells = element.findElements(By.xpath(".//td")); //retrieve all td within tr (works only using xpath)
             ValueListItem item = new ValueListItem(); //create object in order to populate it
             Thread.sleep(1000);
             item.BezeichnungWerteliste = listOfDataCells.get(0).getText(); //set value for first field of the object (the item (the value list) has three fields: name, type and button)
             item.Typ = listOfDataCells.get(1).getText(); //set value for second field of the object
             item.ViewButton = listOfDataCells.get(2).findElement(By.xpath(".//span[@class='fa-eye fas icon']")); //set value for third field of the object
-            if(item.Typ.equals("Dynamisch")) {
+            if (item.Typ.equals("Dynamisch")) {
                 item.EditButton = listOfDataCells.get(2).findElement(By.xpath(".//span[@class='fa-pen fas icon']")); //set value for forth field of the object
             }
             elementsFromTable.add(item); //we add the object to the list of objects. After the first for we have one object elementsFromTable that has 4 properties (BW, Typ, ViewButton and Edit Button)
             logger.info("Object added to list.");
         }
-        for(ValueListItem i: elementsFromTable) {
+        for (ValueListItem i : elementsFromTable) {
             logger.info(i.BezeichnungWerteliste + " - " + i.Typ);
             i.ViewButton.isEnabled();
         }

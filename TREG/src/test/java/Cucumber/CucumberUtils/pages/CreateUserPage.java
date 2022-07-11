@@ -1,4 +1,5 @@
 package Cucumber.CucumberUtils.pages;
+
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
@@ -63,7 +64,7 @@ public class CreateUserPage extends PageObject {
     @FindBy(css = "button.btn-save")
     public WebElementFacade saveButton;
 
-    public String locateCreatedUsersText (String name) {
+    public String locateCreatedUsersText(String name) {
         WebElementFacade nameText = find(By.xpath("//tr//span[contains(text(),'" + name + "')]"));
         return nameText.getText();
     }

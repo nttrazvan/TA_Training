@@ -1,4 +1,5 @@
 package Cucumber.CucumberUtils.steps;
+
 import Cucumber.CucumberUtils.pages.NavigationPage;
 import net.thucydides.core.annotations.Step;
 

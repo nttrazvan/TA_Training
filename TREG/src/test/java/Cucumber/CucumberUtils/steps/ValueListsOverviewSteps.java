@@ -1,16 +1,12 @@
 package Cucumber.CucumberUtils.steps;
+
 import Cucumber.CucumberUtils.pages.ValueListsOverviewPage;
 import Cucumber.CucumberUtils.pages.ValueListItem;
 import com.ibm.icu.impl.Assert;
-import io.cucumber.java.sl.In;
 import net.thucydides.core.annotations.Step;
 import org.assertj.core.api.SoftAssertions;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.util.ArrayList;
 import java.util.List;
 
 import static net.thucydides.core.webdriver.ThucydidesWebDriverSupport.getDriver;
@@ -21,23 +17,6 @@ public class ValueListsOverviewSteps {
 
     private Logger logger = LoggerFactory.getLogger(getClass().getSimpleName());
 
-    @Step()
-    public void checkTitle(String something){
-        softly.assertThat(getDriver().getTitle()).contains(something).as("This message will be shown if the assertion fails");
-    }
-
-    @Step()
-    public void checkTableTitle(String something){
-        Assert.assrt(valueListsOverviewPage.tableTitle.getAttribute("textContent").contains(something));
-    }
-
-    @Step
-    public void verifyTableHeader(String col1, String col2, String col3) {
-        valueListsOverviewPage.tableHeaderFirstColumn.getAttribute("textContent").contains(col1);
-        valueListsOverviewPage.tableHeaderSecondColumn.getAttribute("textContent").contains(col2);
-        valueListsOverviewPage.tableHeaderActions.getAttribute("textContent").contains(col3);
-    }
-
     @Step
     public void verifyTableContent() {
         valueListsOverviewPage.addressList.isDisplayed();
@@ -47,6 +26,7 @@ public class ValueListsOverviewSteps {
         valueListsOverviewPage.viewFaxnummerButton.isClickable();
         valueListsOverviewPage.editFaxnummerButton.isClickable();
     }
+
     //Table standard design
     @Step
     public void checkPaginator() {
@@ -78,8 +58,8 @@ public class ValueListsOverviewSteps {
     public void tableRetrieveValues(String firstList, String secondList) throws InterruptedException {
         boolean elementIsPresent = false;
         List<ValueListItem> elementsFromPage = valueListsOverviewPage.tableRetrieveValues();
-        for(ValueListItem element: elementsFromPage){
-            if(element.BezeichnungWerteliste.contains(firstList) || element.BezeichnungWerteliste.contains(secondList)){
+        for (ValueListItem element : elementsFromPage) {
+            if (element.BezeichnungWerteliste.contains(firstList) || element.BezeichnungWerteliste.contains(secondList)) {
                 elementIsPresent = true;
             }
         }

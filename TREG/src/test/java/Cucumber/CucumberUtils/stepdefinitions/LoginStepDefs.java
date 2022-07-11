@@ -1,15 +1,19 @@
 package Cucumber.CucumberUtils.stepdefinitions;
+
 import Cucumber.CucumberUtils.pages.LoginPage;
 import Cucumber.CucumberUtils.steps.LoginSteps;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import net.serenitybdd.core.Serenity;
 import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.util.EnvironmentVariables;
 import net.thucydides.core.util.SystemEnvironmentVariables;
 import org.junit.AfterClass;
+
 import java.io.IOException;
+
 import static net.thucydides.core.webdriver.ThucydidesWebDriverSupport.getDriver;
 
 public class LoginStepDefs {
@@ -45,7 +49,8 @@ public class LoginStepDefs {
     }
 
     @And("I then enter the password {string} and press submit")
-    public void inputPassword(String something) {
+    public void inputPasswordAndSubmit(String something) {
         loginSteps.inputPassword(something);
     }
+
 }

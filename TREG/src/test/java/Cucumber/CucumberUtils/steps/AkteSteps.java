@@ -1,4 +1,5 @@
 package Cucumber.CucumberUtils.steps;
+
 import Cucumber.CucumberUtils.pages.AktePage;
 import net.thucydides.core.annotations.Step;
 import org.assertj.core.api.SoftAssertions;
@@ -14,8 +15,9 @@ public class AkteSteps {
     private SoftAssertions softly = new SoftAssertions();
     private Logger logger = LoggerFactory.getLogger(getClass().getSimpleName());
     private String CounterBeforeCreation;
+
     //setter
-    public void setCounterBeforeCreation(){
+    public void setCounterBeforeCreation() {
         this.CounterBeforeCreation = aktePage.counter.getTextContent();
     }
 
@@ -28,23 +30,23 @@ public class AkteSteps {
     public String getCounter() throws InterruptedException {
         Thread.sleep(1000);
         setCounterBeforeCreation();
-      logger.info("The counter before creation is: " + CounterBeforeCreation);
+        logger.info("The counter before creation is: " + CounterBeforeCreation);
         return CounterBeforeCreation;
     }
 
     @Step()
-    public void pressCreationButtonRB() {
+    public void clickCreationButton() {
         aktePage.createRBButton.click();
     }
 
     @Step()
-    public void selectAnrede() {
+    public void selectAnrede(String anrede) {
         aktePage.dropdown.click();
-        aktePage.anredeDropdownFrau.click();
+        aktePage.selectAnredeFrau(anrede).click();
     }
 
     @Step
-    public void validateStandard(String vorname, String name) {
+    public void validateFirstAndLastName(String vorname, String name) {
         aktePage.inputVorname.clear();
         aktePage.inputVorname.typeAndTab(vorname);
         aktePage.inputName.clear();
@@ -52,7 +54,7 @@ public class AkteSteps {
     }
 
     @Step
-    public void inputName(String firstName, String lastName) {
+    public void inputFirstAndLastName(String firstName, String lastName) {
         aktePage.inputVorname.typeAndTab(firstName);
         aktePage.inputName.typeAndTab(lastName);
     }
@@ -65,23 +67,25 @@ public class AkteSteps {
             Assert.assertTrue(aktePage.buttonWeiter.isEnabled());
         }
     }
+
     @Step
-    public void checkboxKanzlei(){
+    public void checkboxKanzlei() {
         aktePage.checkboxKanzlei.click();
     }
+
     @Step
-    public void checkboxAddress(){
+    public void checkboxAddress() {
         aktePage.checkboxAddress.click();
     }
 
     @Step
-    public void iPressSubmit() {
+    public void iClickSubmit() {
         aktePage.buttonWeiter.click();
     }
 
     @Step
     public void iCheckTheName(String firstName) {
-        aktePage.locateNameSecondStep(firstName);
+        Assert.assertEquals("Liana Chis", aktePage.locateNameSecondStep(firstName).getText());
     }
 
     @Step()
@@ -93,7 +97,6 @@ public class AkteSteps {
     @Step()
     public void inputBeginDate(String beginDate) {
         aktePage.beginDate.typeAndTab(beginDate);
-
     }
 
     @Step()
@@ -113,13 +116,9 @@ public class AkteSteps {
 
     @Step()
     public void checkCounter() throws InterruptedException {
-       Thread.sleep(1000);
+        Thread.sleep(1000);
         String counterAfterCreation = aktePage.counter.getTextContent();
         logger.info("The counter after creation is: " + counterAfterCreation);
-        Assert.assertNotEquals(CounterBeforeCreation,counterAfterCreation);
-    }
-
-    public void setAktePage(AktePage aktePage) {
-        this.aktePage = aktePage;
+        Assert.assertNotEquals(CounterBeforeCreation, counterAfterCreation,"The counter has not been updated.");
     }
 }

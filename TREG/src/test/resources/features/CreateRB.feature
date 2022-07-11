@@ -14,10 +14,10 @@ Feature: Scenario to test the creation of a lawyer of type RB
   Scenario Outline: This scenario tests the field validations for first name and last name
     Given I open the Akte page to "https://test.isb-ag.de/tpr/tpr/akte/1"
     When I save the counter before creation
-    And I press the creation button of RB
-    And I select an option in the dropdown Anrede
+    And I click the creation button of RB
+    And I select the option "Frau" in the dropdown Anrede
     And I enter something in the fields "<Vorname>" and "<Name>"
-    Then I should see the button "<Weiter>"
+    Then I check that the button "<Weiter>" is:
     Examples:
       | Vorname                                                                                               | Name                                                                                                  | Weiter   |
       | aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa | aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa | disabled |
@@ -27,12 +27,12 @@ Feature: Scenario to test the creation of a lawyer of type RB
   Scenario: This scenario tests the field validations for date fields and submits the wizard
     Given I open the Akte page to "https://test.isb-ag.de/tpr/tpr/akte/1"
     When I save the counter before creation
-    And I press the creation button of RB
-    And I select an option in the dropdown Anrede
+    And I click the creation button of RB
+    And I select the option "Frau" in the dropdown Anrede
     And I enter the first name "Liana" and the last name "Chis"
-    When I press Next
+    When I click Next
     And I uncheck Kanzlei and Known Address
-    And I press Next
+    And I click Next
     Then I check the name "Liana"
     When I select a role
     And I enter a begin date "01.01.2022"

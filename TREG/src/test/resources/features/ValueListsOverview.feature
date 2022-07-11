@@ -5,7 +5,7 @@ Feature: Scenario to test the Value Lists Overview
   Using Java, cucumber and serenity
 
   @ValueListsOverview @Web
-    Scenario: This scenario tests the Value Lists Management component
+  Scenario: This scenario tests the table functionality for the Value Lists Management component
     Given I open the browser to "https://test.isb-ag.de/tpr/tpr/login"
     When I first enter the username "User1A"
     And I then enter the password "TPRBenutzer01!" and press submit

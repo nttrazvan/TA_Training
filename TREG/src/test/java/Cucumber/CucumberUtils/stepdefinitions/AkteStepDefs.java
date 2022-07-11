@@ -1,4 +1,5 @@
 package Cucumber.CucumberUtils.stepdefinitions;
+
 import Cucumber.CucumberUtils.steps.AkteSteps;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -20,29 +21,29 @@ public class AkteStepDefs {
         akteSteps.getCounter();
     }
 
-    @And("I press the creation button of RB")
+    @And("I click the creation button of RB")
     public void pressCreationButton() {
-        akteSteps.pressCreationButtonRB();
+        akteSteps.clickCreationButton();
     }
 
-    @And("I select an option in the dropdown Anrede")
-    public void inputAnrede() {
-        akteSteps.selectAnrede();
+    @And("I select the option {string} in the dropdown Anrede")
+    public void inputAnrede(String anrede) {
+        akteSteps.selectAnrede(anrede);
     }
 
     @When("I enter something in the fields {string} and {string}")
     public void validateStandardInput(String vorname, String name) {
-        akteSteps.validateStandard(vorname, name);
+        akteSteps.validateFirstAndLastName(vorname, name);
     }
 
-    @Then("I should see the button {string}")
-    public void iShouldSeeTheButton(String weiterState) {
-     akteSteps.weiterIsEnabled(weiterState);
+    @Then("I check that the button {string} is:")
+    public void icheckTheStateOfNext(String weiterState) {
+        akteSteps.weiterIsEnabled(weiterState);
     }
 
-    @Given("I press Next")
-    public void iPressNext() {
-        akteSteps.iPressSubmit();
+    @Given("I click Next")
+    public void iClickNext() {
+        akteSteps.iClickSubmit();
     }
 
     @Then("I check the name {string}")
@@ -52,7 +53,7 @@ public class AkteStepDefs {
 
     @And("I enter the first name {string} and the last name {string}")
     public void iEnterTheFirstNameAndTheLastName(String firstName, String lastName) {
-        akteSteps.inputName(firstName, lastName);
+        akteSteps.inputFirstAndLastName(firstName, lastName);
     }
 
     @And("I select a role")
