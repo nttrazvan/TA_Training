@@ -5,13 +5,15 @@ import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-
-public class AktePage extends PageObject {
+//ToDo - please add an empty line between elements
+public class AktePage extends PageObject {/*ToDo - please add spaces after class declaration*/
+//    ToDo - try to find the element by partial link text
     @FindBy(css = "a[href='/tpr/tpr/akte/1/create-rechsbeistand']")
     public WebElementFacade createRBButton;
     @FindBy(css = "form>div:nth-child(1) isy-form-wrapper p-dropdown")
     public WebElementFacade dropdown;
     @FindBy(xpath = "//li/span[contains(text(),'Frau')]")
+//    ToDo - element is not used
     public WebElementFacade anredeDropdownFrau;
     @FindBy(xpath = "//li/span[contains(text(),'Verteidigung')]")
     public WebElementFacade roleDropdownVerteidigung;

@@ -13,7 +13,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
-public class TimeAndDateSteps {
+public class TimeAndDateSteps {/*ToDo - please add spaces after class declaration*/
     private TimeAndDatePage timeAndDatePage;
     private TimeAndDateDataContainer timeAndDateDataContainer;
     private Logger logger = LoggerFactory.getLogger(getClass().getSimpleName());
@@ -92,7 +92,7 @@ public class TimeAndDateSteps {
                 timeAndDatePage.nextArrowMonth.click();
             }
         }
-        //Grab days and iterate
+        //Grab days and iterate/*ToDo - please declare Integer as int and validate string comparisons by x.equals("") */
         int endDaysCount = timeAndDatePage.days.size();
         for (int i = 0; i < endDaysCount; i++) {
             Integer endDays = Integer.valueOf(timeAndDatePage.days.get(i).getAttribute("outerText"));

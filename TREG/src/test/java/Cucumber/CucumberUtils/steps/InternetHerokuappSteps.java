@@ -15,7 +15,7 @@ import java.util.List;
 
 import static net.thucydides.core.webdriver.ThucydidesWebDriverSupport.getDriver;
 
-public class InternetHerokuappSteps {
+public class InternetHerokuappSteps {/*ToDo - please add spaces after class declaration*/
     private InternetHerokuappPage internetHerokuappPage;
     private InternetDataContainer internetDataContainer;
     private Logger logger = LoggerFactory.getLogger(getClass().getSimpleName());
@@ -47,7 +47,7 @@ public class InternetHerokuappSteps {
         softly.assertThat(elementIsPresent).isEqualTo(true);
         softly.assertAll();
     }
-
+//Todo- remove empty line
 
     @Step()
     public void checkTitle(String expectedTitle) {
@@ -61,7 +61,7 @@ public class InternetHerokuappSteps {
         Assert.assertEquals(internetHerokuappPage.contentParagraph.getTextContent(), internetDataContainer.content);
         logger.info(internetHerokuappPage.contentParagraph.getTextContent());
     }
-
+//ToDo - for string comparison pleae use x.equals("asd")
     @Step()
     public void clickAndVerifyButton(String button) {
         if (button == "Blue") {
@@ -81,7 +81,7 @@ public class InternetHerokuappSteps {
             System.out.println("Text after click: " + internetHerokuappPage.greenButton.getTextContent());
         }
     }
-
+//ToDo - nicely done :D
     @Step()
     public void iVerifyCanvasHasNumbers() {
         String answer = new String();
@@ -95,7 +95,7 @@ public class InternetHerokuappSteps {
         }
         System.out.println(answer.substring(8));
     }
-
+//ToDo - you can create a separate helper method to switch between window handles in a parameterized way, not mandatory
     @Step()
     public void checkBottomRedirect(String pageTitle) throws InterruptedException {
         String originalWindow = getDriver().getWindowHandle();
@@ -126,7 +126,7 @@ public class InternetHerokuappSteps {
         System.out.println("The first part of the title is: " + newPageTitle.substring(0, 6));
         Assert.assertTrue(newPageTitle.substring(0, 6).equals(pageTitle));
     }
-
+//ToDo - this can be a generic step
     @Step()
     public void navigateBack() {
         getDriver().navigate().back();

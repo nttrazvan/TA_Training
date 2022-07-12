@@ -7,7 +7,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.thucydides.core.annotations.Steps;
 
-public class AkteStepDefs {
+public class AkteStepDefs {/*ToDo - please add spaces after class declaration*/
     @Steps
     private AkteSteps akteSteps;
 

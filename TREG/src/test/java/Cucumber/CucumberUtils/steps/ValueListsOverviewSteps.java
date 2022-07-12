@@ -9,11 +9,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.util.List;
 
-public class ValueListsOverviewSteps {
+public class ValueListsOverviewSteps {/*ToDo - please add spaces after class declaration*/
     private ValueListsOverviewPage valueListsOverviewPage;
     private SoftAssertions softly = new SoftAssertions();
     private Logger logger = LoggerFactory.getLogger(getClass().getSimpleName());
-
+//ToDo - remove if unused
     @Step
     public void verifyTableContent() {
         valueListsOverviewPage.addressList.isDisplayed();
@@ -29,7 +29,7 @@ public class ValueListsOverviewSteps {
     public void checkPaginator() {
         valueListsOverviewPage.paginator.isDisplayed();
     }
-
+//ToDo - please check the imports and use the Junit assertions
     @Step
     public void checkSortingWorks() {
         logger.info("The sorting type is: " + valueListsOverviewPage.tableHeaderFirstColumn.getAttribute("aria-sort"));
@@ -46,9 +46,10 @@ public class ValueListsOverviewSteps {
         logger.info("I press the filter button");
         valueListsOverviewPage.filteringButton.click();
         logger.info("I check the filter line appears");
+//        ToDo - pelase check the assertuin, format should be sofly.assertThat(element).condition (hovering over it will tell you the assert is ignored)
         softly.assertThat(valueListsOverviewPage.filterLine.isPresent());
         valueListsOverviewPage.inputFilterLine.typeAndTab(searchString);
-
+//ToDo-remove line here
     }
 
     @Step
@@ -57,7 +58,7 @@ public class ValueListsOverviewSteps {
         List<ValueListItem> elementsFromPage = valueListsOverviewPage.tableRetrieveValues();
         for (ValueListItem element : elementsFromPage) {
             if (element.BezeichnungWerteliste.contains(firstList) || element.BezeichnungWerteliste.contains(secondList)) {
-                elementIsPresent = true;
+                elementIsPresent = true;/*ToDo - please add break*/
             }
         }
         Assert.assrt(elementIsPresent);
@@ -66,7 +67,7 @@ public class ValueListsOverviewSteps {
     @Step
     public void checkResetFilterButton() throws InterruptedException {
         List<ValueListItem> elementsFromPage = valueListsOverviewPage.tableRetrieveValues();
-        Integer listSizeBeforeReset = elementsFromPage.size();
+        Integer listSizeBeforeReset = elementsFromPage.size();/*ToDo - please declare as int*/
         valueListsOverviewPage.resetFilteringButton.click();
         valueListsOverviewPage.sortingButton.click();
         Thread.sleep(1000);

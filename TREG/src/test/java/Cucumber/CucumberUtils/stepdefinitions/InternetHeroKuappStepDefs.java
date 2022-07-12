@@ -16,7 +16,7 @@ import java.io.IOException;
 
 import static net.thucydides.core.webdriver.ThucydidesWebDriverSupport.getDriver;
 
-public class InternetHeroKuappStepDefs {
+public class InternetHeroKuappStepDefs {/*ToDo - please add spaces after class declaration*/
     private InternetHerokuappPage internetHerokuappPage;
     @Steps
     private InternetHerokuappSteps internetHerokuappSteps;
@@ -83,3 +83,4 @@ public class InternetHeroKuappStepDefs {
         internetHerokuappSteps.navigateBack();
     }
 }
+//ToDo - beautiful

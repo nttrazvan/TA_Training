@@ -10,7 +10,8 @@ import java.util.List;
 
 import static jxl.biff.FormatRecord.logger;
 
-public class InternetHerokuappPage extends PageObject {
+public class InternetHerokuappPage extends PageObject {/*ToDo - please add spaces after class declaration*/
+    //ToDo - please add an empty line between elements
     @FindBy(xpath = "//div/p")
     public WebElementFacade contentParagraph;
     @FindBy(css = "a[class='button']")
@@ -25,7 +26,7 @@ public class InternetHerokuappPage extends PageObject {
     public WebElementFacade bottomRedirect;
     @FindBy(xpath = "//img[@alt='Fork me on GitHub']")
     public WebElementFacade topRedirect;
-
+//ToDo - interruptedException not needed
     public List<InternetHerokuappItem> tableRetrieveValues() throws InterruptedException {
         List<WebElement> tableRows = getDriver().findElements(By.xpath("//tbody/tr")); //numbering the rows
         List<InternetHerokuappItem> elementsFromTable = new ArrayList<>(); // create empty list of objects
@@ -48,6 +49,6 @@ public class InternetHerokuappPage extends PageObject {
         return elementsFromTable;
     }
 }
-
+//ToDo - remove redundant empty lines
 
 

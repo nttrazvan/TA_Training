@@ -9,7 +9,7 @@ import org.slf4j.LoggerFactory;
 
 import static net.thucydides.core.webdriver.ThucydidesWebDriverSupport.getDriver;
 
-public class AkteSteps {
+public class AkteSteps {/*ToDo - please add spaces after class declaration*/
     private AktePage aktePage;
     private SoftAssertions softly = new SoftAssertions();
     private Logger logger = LoggerFactory.getLogger(getClass().getSimpleName());
@@ -24,7 +24,7 @@ public class AkteSteps {
     public void openAktePage(String url) {
         getDriver().navigate().to(url);
     }
-
+//ToDo - method names have to be persistent with the BDD saveCounter
     @Step()
     public String getCounter() throws InterruptedException {
         Thread.sleep(1000);
@@ -37,13 +37,13 @@ public class AkteSteps {
     public void clickCreationButton() {
         aktePage.createRBButton.click();
     }
-
+//ToDo - if the framework is in English, I suggest naming the methods in English selectGender
     @Step()
     public void selectAnrede(String anrede) {
         aktePage.dropdown.click();
         aktePage.selectAnredeFrau(anrede).click();
     }
-
+//ToDo this method and the one underneath do the same thing, you can have the clear method even if the field is empty
     @Step
     public void validateFirstAndLastName(String vorname, String name) {
         aktePage.inputVorname.clear();
@@ -57,7 +57,7 @@ public class AkteSteps {
         aktePage.inputVorname.typeAndTab(firstName);
         aktePage.inputName.typeAndTab(lastName);
     }
-
+//ToDo - this method validates the state, both disabled and enabled
     @Step
     public void weiterIsEnabled(String weiterState) {
         if (weiterState.equals("disabled")) {
@@ -90,6 +90,7 @@ public class AkteSteps {
     @Step()
     public void selectRole() {
         aktePage.dropdown.click();
+//        ToDo - Verteidigung is an entry in the dropdown, not the entry
         aktePage.roleDropdownVerteidigung.click();
     }
 
@@ -107,7 +108,7 @@ public class AkteSteps {
     public void submitWizard() {
         aktePage.saveButton.click();
     }
-
+//ToDo - this should be a generic step as it can be used in multiple instances
     @Step()
     public void refreshPage() {
         getDriver().navigate().refresh();

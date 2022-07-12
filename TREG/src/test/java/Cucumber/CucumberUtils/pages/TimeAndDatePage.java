@@ -4,7 +4,8 @@ import net.serenitybdd.core.pages.PageObject;
 import org.openqa.selenium.WebElement;
 import java.util.List;
 
-public class TimeAndDatePage extends PageObject {
+public class TimeAndDatePage extends PageObject {/*ToDo - please add spaces after class declaration*/
+//    ToDo - please add empty lines after element
     @FindBy(css = ".qc-cmp2-summary-buttons button:nth-child(2)")
     public WebElement policyButton;
     @FindBy(xpath = "//*[@id='f']/div[1]/div[1]/div/div[4]/button")
@@ -54,6 +55,6 @@ public class TimeAndDatePage extends PageObject {
     @FindBy(xpath = "//option[contains(@value,'2') and text()='Public holidays (not in weekends)']")
     public WebElement selectPublicHolidays;
 }
-
+//ToDo - please remove redundant empty lines
 
 

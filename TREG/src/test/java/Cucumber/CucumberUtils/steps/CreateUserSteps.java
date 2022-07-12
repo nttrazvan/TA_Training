@@ -11,15 +11,16 @@ import org.slf4j.LoggerFactory;
 
 import static org.junit.Assert.assertEquals;
 
-public class CreateUserSteps {
+public class CreateUserSteps {/*ToDo - please add spaces after class declaration*/
     CreateUserPage createUserPage;
     NavigationPage navigationPage;
+//    ToDo - remove following 3 if not used
     private SoftAssertions softly = new SoftAssertions();
     private Logger logger = LoggerFactory.getLogger(getClass().getSimpleName());
 
     public CreateUserSteps() {
     }
-
+// ToDo - this can be a generic method as it can be used on any page I presume
     @Step()
     public void navigateToUserOverview() {
         navigationPage.menuButton.click();
@@ -49,6 +50,7 @@ public class CreateUserSteps {
             Assert.fail("The phone number is not in the desired list.");
         }
         createUserPage.inputExtension.sendKeys(extension);
+//       ToDo -  The tab should have a business name
         createUserPage.navigateSecondTab.click();
         createUserPage.inputRole.click();
         boolean roleFlag = false;
@@ -98,7 +100,7 @@ public class CreateUserSteps {
     public void submitForm() {
         createUserPage.saveButton.click();
     }
-
+//ToDo - firstName is not validated
     @Step()
     public void validateCreation(String firstName, String lastName) {
         assertEquals(createUserPage.locateCreatedUsersText(lastName), lastName);

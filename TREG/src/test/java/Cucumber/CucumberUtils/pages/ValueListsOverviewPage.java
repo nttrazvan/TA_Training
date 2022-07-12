@@ -10,7 +10,7 @@ import java.util.List;
 
 import static jxl.biff.FormatRecord.logger;
 
-public class ValueListsOverviewPage extends PageObject {
+public class ValueListsOverviewPage extends PageObject {/*ToDo - please add spaces after class declaration*/
     //Table title
     @FindBy(css = "span.isy-panel-title")
     public WebElementFacade tableTitle;

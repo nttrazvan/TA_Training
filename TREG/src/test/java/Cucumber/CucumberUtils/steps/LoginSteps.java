@@ -6,10 +6,10 @@ import net.thucydides.core.annotations.Step;
 
 import static net.thucydides.core.webdriver.ThucydidesWebDriverSupport.getDriver;
 
-public class LoginSteps {
+public class LoginSteps {/*ToDo - please add spaces after class declaration*/
     private LoginPage loginPage;
     private NavigationPage navigationPage;
-
+//ToDo - the navigate method can be generic
     @Step()
     public void openLoginPage(String url) {
         getDriver().navigate().to(url);
