@@ -5,7 +5,8 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import net.thucydides.core.annotations.Steps;
 
-public class ValueListsStepDefs {/*ToDo - please add spaces after class declaration*/
+public class ValueListsStepDefs {
+
     @Steps
     private ValueListsOverviewSteps valueListsOverviewSteps;
 

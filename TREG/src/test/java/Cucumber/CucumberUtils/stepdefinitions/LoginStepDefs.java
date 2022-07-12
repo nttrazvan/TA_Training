@@ -14,7 +14,8 @@ import java.io.IOException;
 
 import static net.thucydides.core.webdriver.ThucydidesWebDriverSupport.getDriver;
 
-public class LoginStepDefs {/*ToDo - please add spaces after class declaration*/
+public class LoginStepDefs {
+
     private LoginPage loginPage;
     @Steps
     private LoginSteps loginSteps;

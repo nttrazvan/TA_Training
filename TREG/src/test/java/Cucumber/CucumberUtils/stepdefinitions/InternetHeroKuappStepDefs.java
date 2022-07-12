@@ -16,7 +16,8 @@ import java.io.IOException;
 
 import static net.thucydides.core.webdriver.ThucydidesWebDriverSupport.getDriver;
 
-public class InternetHeroKuappStepDefs {/*ToDo - please add spaces after class declaration*/
+public class InternetHeroKuappStepDefs {
+
     private InternetHerokuappPage internetHerokuappPage;
     @Steps
     private InternetHerokuappSteps internetHerokuappSteps;
@@ -47,9 +48,9 @@ public class InternetHeroKuappStepDefs {/*ToDo - please add spaces after class d
         internetHerokuappSteps.checkHeader(headers);
     }
 
-    @Then("The table content should be {string} {string} {string} {string} {string} {string}")
-    public void tableContains(String col1, String col2, String col3, String col4, String col5, String col6) throws InterruptedException {
-        internetHerokuappSteps.tableContains(col1, col2, col3, col4, col5, col6);
+    @Then("The table content should be {int} {string} {string} {string} {string} {string} {string}")
+    public void tableContains(int index, String col1, String col2, String col3, String col4, String col5, String col6) throws InterruptedException {
+        internetHerokuappSteps.tableContains(index, col1, col2, col3, col4, col5, col6);
     }
 
     @Given("The title is {string}")

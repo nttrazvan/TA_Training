@@ -13,7 +13,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
-public class TimeAndDateSteps {/*ToDo - please add spaces after class declaration*/
+public class TimeAndDateSteps {
+
     private TimeAndDatePage timeAndDatePage;
     private TimeAndDateDataContainer timeAndDateDataContainer;
     private Logger logger = LoggerFactory.getLogger(getClass().getSimpleName());
@@ -92,24 +93,24 @@ public class TimeAndDateSteps {/*ToDo - please add spaces after class declaratio
                 timeAndDatePage.nextArrowMonth.click();
             }
         }
-        //Grab days and iterate/*ToDo - please declare Integer as int and validate string comparisons by x.equals("") */
+        //Grab days and iterate
         int endDaysCount = timeAndDatePage.days.size();
         for (int i = 0; i < endDaysCount; i++) {
-            Integer endDays = Integer.valueOf(timeAndDatePage.days.get(i).getAttribute("outerText"));
+            int endDays = Integer.parseInt(timeAndDatePage.days.get(i).getAttribute("outerText"));
             if (endDays == endDay) {
                 timeAndDatePage.days.get(i).click();
             }
         }
-        Integer actualInputEndDay = Integer.valueOf(timeAndDatePage.endDateInputDay.getAttribute("value"));
-        Integer actualInputEndMonth = Integer.valueOf(String.valueOf(Integer.valueOf(timeAndDatePage.endDateInputMonth.getAttribute("value"))));
-        Integer actualInputEndYear = Integer.valueOf(timeAndDatePage.endDateInputYear.getAttribute("value"));
+        int actualInputEndDay = Integer.parseInt(timeAndDatePage.endDateInputDay.getAttribute("value"));
+        int actualInputEndMonth = Integer.parseInt(String.valueOf(Integer.valueOf(timeAndDatePage.endDateInputMonth.getAttribute("value"))));
+        int actualInputEndYear = Integer.parseInt(timeAndDatePage.endDateInputYear.getAttribute("value"));
         //Assert that the correct date was picked
         logger.info("I check that the day input " + actualInputEndDay + " is correct");
-        Assert.assertTrue(actualInputEndDay == endDay);
+        Assert.assertEquals(actualInputEndDay, endDay);
         logger.info("I check that the month input " + actualInputEndMonth + " is correct");
-        Assert.assertTrue(actualInputEndMonth == timeAndDateDataContainer.January);
+        Assert.assertEquals((int) timeAndDateDataContainer.January, actualInputEndMonth);
         logger.info("I check that the year input " + actualInputEndYear + " is correct");
-        Assert.assertTrue(actualInputEndYear == endYear);
+        Assert.assertEquals(actualInputEndYear, endYear);
         // Save the picked date in a string
         String endDate = actualInputEndDay + "-" + actualInputEndMonth + "-" + actualInputEndYear;
         System.out.println("The End Date is: " + endDate);

@@ -7,7 +7,8 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.thucydides.core.annotations.Steps;
 
-public class AkteStepDefs {/*ToDo - please add spaces after class declaration*/
+public class AkteStepDefs {
+
     @Steps
     private AkteSteps akteSteps;
 
@@ -18,7 +19,7 @@ public class AkteStepDefs {/*ToDo - please add spaces after class declaration*/
 
     @And("I save the counter before creation")
     public void saveCounter() throws InterruptedException {
-        akteSteps.getCounter();
+        akteSteps.saveCounter();
     }
 
     @And("I click the creation button of RB")
@@ -28,7 +29,7 @@ public class AkteStepDefs {/*ToDo - please add spaces after class declaration*/
 
     @And("I select the option {string} in the dropdown Anrede")
     public void inputAnrede(String anrede) {
-        akteSteps.selectAnrede(anrede);
+        akteSteps.selectGender(anrede);
     }
 
     @When("I enter something in the fields {string} and {string}")
@@ -38,7 +39,7 @@ public class AkteStepDefs {/*ToDo - please add spaces after class declaration*/
 
     @Then("I check that the button {string} is:")
     public void icheckTheStateOfNext(String weiterState) {
-        akteSteps.weiterIsEnabled(weiterState);
+        akteSteps.validateNextButtonState(weiterState);
     }
 
     @Given("I click Next")
@@ -53,7 +54,7 @@ public class AkteStepDefs {/*ToDo - please add spaces after class declaration*/
 
     @And("I enter the first name {string} and the last name {string}")
     public void iEnterTheFirstNameAndTheLastName(String firstName, String lastName) {
-        akteSteps.inputFirstAndLastName(firstName, lastName);
+        akteSteps.validateFirstAndLastName(firstName, lastName);
     }
 
     @And("I select a role")

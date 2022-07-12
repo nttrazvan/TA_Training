@@ -1,5 +1,5 @@
 package Cucumber.TestDataContainer;
-//ToDo - please either use this or the Month.json in the resources folder (create files package if using the json)
+
 public class TimeAndDateDataContainer {
     public static final Integer January = 1;
     public static final Integer February = 2;

@@ -20,7 +20,6 @@ public class CreateUserStepdefs {
     public void iPressTheCreationButton() {
         createUserSteps.openCreateUserPage();
     }
-//ToDo - please remove the extra line
 
     @And("I enter: first name {string}, last name {string}, email {string}, phone number {string}, extension {string}, role {string}, {string},{string} and {string}")
     public void iEnterFirstNameLastNameEmailPhoneNumberExtensionDurchwahlRoleAnd(String firstName, String lastName, String email, String phoneNumber, String extension, String role, String referat, String mentor, String team) {
@@ -33,7 +32,7 @@ public class CreateUserStepdefs {
     }
 
     @Then("I check that the users {string} and {string} where created")
-    public void iCheckThatTheUsersWhereCreated(String lastName, String firtName) {
-        createUserSteps.validateCreation(lastName, firtName);
+    public void iCheckThatTheUsersWhereCreated(String lastName, String firstName) {
+        createUserSteps.validateCreation(lastName, firstName);
     }
 }

@@ -3,7 +3,6 @@ package Cucumber.CucumberUtils.pages;
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
-import org.junit.Assert;
 import org.openqa.selenium.By;
 
 import java.util.List;
@@ -32,7 +31,7 @@ public class CreateUserPage extends PageObject {
     public WebElementFacade inputExtension;
 
     @FindBy(xpath = "//a//span[contains(text(),' Referats- und Rollenzuordnung ')]")
-    public WebElementFacade navigateSecondTab;
+    public WebElementFacade navigateToRoleAssignment;
 
     @FindBy(css = "p-dropdown[formcontrolname='rolleId']")
     public WebElementFacade inputRole;
@@ -64,8 +63,8 @@ public class CreateUserPage extends PageObject {
     @FindBy(css = "button.btn-save")
     public WebElementFacade saveButton;
 
-    public String locateCreatedUsersText(String name) {
-        WebElementFacade nameText = find(By.xpath("//tr//span[contains(text(),'" + name + "')]"));
+    public String locateCreatedUsersText(String lastName) {
+        WebElementFacade nameText = find(By.xpath("//tr//span[contains(text(),'" + lastName + "')]"));
         return nameText.getText();
     }
 }

@@ -1,6 +1,5 @@
 package Cucumber.CucumberUtils.steps;
 
-import Cucumber.CucumberUtils.pages.InternetHerokuappItem;
 import Cucumber.CucumberUtils.pages.InternetHerokuappPage;
 import Cucumber.TestDataContainer.InternetDataContainer;
 import net.thucydides.core.annotations.Step;
@@ -15,7 +14,8 @@ import java.util.List;
 
 import static net.thucydides.core.webdriver.ThucydidesWebDriverSupport.getDriver;
 
-public class InternetHerokuappSteps {/*ToDo - please add spaces after class declaration*/
+public class InternetHerokuappSteps {
+
     private InternetHerokuappPage internetHerokuappPage;
     private InternetDataContainer internetDataContainer;
     private Logger logger = LoggerFactory.getLogger(getClass().getSimpleName());
@@ -36,18 +36,21 @@ public class InternetHerokuappSteps {/*ToDo - please add spaces after class decl
     }
 
     @Step()
-    public void tableContains(String col1, String col2, String col3, String col4, String col5, String col6) throws InterruptedException {
+    public void tableContains(int index, String col1, String col2, String col3, String col4, String col5, String col6) throws InterruptedException {
         boolean elementIsPresent = false;
-        List<InternetHerokuappItem> elementsFromPage = internetHerokuappPage.tableRetrieveValues();
-        for (InternetHerokuappItem element : elementsFromPage) {
-            if (element.Lorem.contains(col1) || element.Ipsum.contains(col2) || element.Dolor.contains(col3) || element.Sit.contains(col4) || element.Amet.contains(col5) || element.Diceret.contains(col6)) {
+        List<List> elementsFromPage = internetHerokuappPage.tableRetrieveValues();
+        elementsFromPage.get(index);
+        if (elementsFromPage.get(index).get(0).toString().contains(col1) &&
+                elementsFromPage.get(index).get(1).toString().contains(col2) &&
+                elementsFromPage.get(index).get(2).toString().contains(col3) &&
+                elementsFromPage.get(index).get(3).toString().contains(col4) &&
+                elementsFromPage.get(index).get(4).toString().contains(col5) &&
+                elementsFromPage.get(index).get(5).toString().contains(col6))
+        {
                 elementIsPresent = true;
-            }
         }
-        softly.assertThat(elementIsPresent).isEqualTo(true);
-        softly.assertAll();
+        Assert.assertTrue(elementIsPresent);
     }
-//Todo- remove empty line
 
     @Step()
     public void checkTitle(String expectedTitle) {
@@ -61,15 +64,15 @@ public class InternetHerokuappSteps {/*ToDo - please add spaces after class decl
         Assert.assertEquals(internetHerokuappPage.contentParagraph.getTextContent(), internetDataContainer.content);
         logger.info(internetHerokuappPage.contentParagraph.getTextContent());
     }
-//ToDo - for string comparison pleae use x.equals("asd")
+
     @Step()
     public void clickAndVerifyButton(String button) {
-        if (button == "Blue") {
+        if (button.equals("Blue")) {
             Assert.assertFalse(internetHerokuappPage.blueButton.getTextContent().length() == 0);
             System.out.println("Text before click: " + internetHerokuappPage.blueButton.getTextContent());
             internetHerokuappPage.blueButton.click();
             System.out.println("Text after click: " + internetHerokuappPage.blueButton.getTextContent());
-        } else if (button == "Red") {
+        } else if (button.equals("Red")) {
             Assert.assertNotEquals(internetHerokuappPage.redButton.getTextContent().length(), 0);
             System.out.println("Text before click: " + internetHerokuappPage.redButton.getTextContent());
             internetHerokuappPage.redButton.click();
@@ -81,7 +84,7 @@ public class InternetHerokuappSteps {/*ToDo - please add spaces after class decl
             System.out.println("Text after click: " + internetHerokuappPage.greenButton.getTextContent());
         }
     }
-//ToDo - nicely done :D
+
     @Step()
     public void iVerifyCanvasHasNumbers() {
         String answer = new String();
@@ -95,7 +98,7 @@ public class InternetHerokuappSteps {/*ToDo - please add spaces after class decl
         }
         System.out.println(answer.substring(8));
     }
-//ToDo - you can create a separate helper method to switch between window handles in a parameterized way, not mandatory
+
     @Step()
     public void checkBottomRedirect(String pageTitle) throws InterruptedException {
         String originalWindow = getDriver().getWindowHandle();
@@ -126,7 +129,7 @@ public class InternetHerokuappSteps {/*ToDo - please add spaces after class decl
         System.out.println("The first part of the title is: " + newPageTitle.substring(0, 6));
         Assert.assertTrue(newPageTitle.substring(0, 6).equals(pageTitle));
     }
-//ToDo - this can be a generic step
+
     @Step()
     public void navigateBack() {
         getDriver().navigate().back();

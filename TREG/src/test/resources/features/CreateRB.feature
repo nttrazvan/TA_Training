@@ -5,14 +5,14 @@ Feature: Scenario to test the creation of a lawyer of type RB
   Using Java, cucumber and serenity
 
   Background:
-    Given I open the browser to "https://test.isb-ag.de/tpr/tpr/login"
+    Given I open the browser to "http://localhost:8080/tpr/tpr/login"
     When I first enter the username "User1S"
     When I then enter the password "TPRBenutzer01!" and press submit
     Then Wait for the Dashboard to load
 
   @OpenAndValidateFirstAndLastName @Web
   Scenario Outline: This scenario tests the field validations for first name and last name
-    Given I open the Akte page to "https://test.isb-ag.de/tpr/tpr/akte/1"
+    Given I open the Akte page to "http://localhost:8080/tpr/tpr/akte/1"
     When I save the counter before creation
     And I click the creation button of RB
     And I select the option "Frau" in the dropdown Anrede
@@ -25,7 +25,7 @@ Feature: Scenario to test the creation of a lawyer of type RB
 
   @Create @Web
   Scenario: This scenario tests the field validations for date fields and submits the wizard
-    Given I open the Akte page to "https://test.isb-ag.de/tpr/tpr/akte/1"
+    Given I open the Akte page to "http://localhost:8080/tpr/tpr/akte/1"
     When I save the counter before creation
     And I click the creation button of RB
     And I select the option "Frau" in the dropdown Anrede

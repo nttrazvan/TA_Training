@@ -1,8 +1,9 @@
 package Cucumber.CucumberUtils.steps;
 
 import Cucumber.CucumberUtils.pages.NavigationPage;
-import net.thucydides.core.annotations.Step;/*ToDo - please add spaces before and after class declaration*/
+import net.thucydides.core.annotations.Step;
 public class NavigationSteps {
+
     NavigationPage navigationPage;
 
     @Step()

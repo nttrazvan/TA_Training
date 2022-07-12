@@ -17,7 +17,8 @@ import java.io.IOException;
 
 import static net.thucydides.core.webdriver.ThucydidesWebDriverSupport.getDriver;
 
-public class TimeAndDateStepDefs {/*ToDo - please add spaces after class declaration*/
+public class TimeAndDateStepDefs {
+
     private TimeAndDatePage timeAndDatePage;
 
     @Steps
@@ -54,8 +55,8 @@ public class TimeAndDateStepDefs {/*ToDo - please add spaces after class declara
         timeAndDateSteps.setStartDate(startDay,startMonth,startYear);
     }
 
-    @And("I select an end date: {int} {string} {int}")/*ToDo - interrupted exception not needed*/
-    public void iSelectEndDate(int endDay,String endMonth, int endYear) throws InterruptedException {
+    @And("I select an end date: {int} {string} {int}")
+    public void iSelectEndDate(int endDay,String endMonth, int endYear) {
         timeAndDateSteps.setEndDate(endDay,endMonth,endYear);
     }
 
