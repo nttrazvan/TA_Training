@@ -16,7 +16,7 @@ public class CreateUserStepdefs {
         createUserSteps.navigateToUserOverview();
     }
 
-    @And("I press the creation button")
+    @And("I click the creation button")
     public void iPressTheCreationButton() {
         createUserSteps.openCreateUserPage();
     }

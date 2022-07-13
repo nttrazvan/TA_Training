@@ -10,7 +10,7 @@ Feature: Scenario to test the creation of users
     And I first enter the username "User1A"
     And I then enter the password "TPRBenutzer01!" and press submit
     Given I navigate to the User Overview
-    When I press the creation button
+    When I click the creation button
     And I enter: first name "<Vorname>", last name "<Name>", email "<E-Mail>", phone number "<Telefon>", extension "<Durchwahl>", role "<Rollenzuweisung>", "<Referat>","<Team>" and "<Mentor mandatory>"
     And I submit the form
     Then I check that the users "<Name>" and "<Vorname>" where created
