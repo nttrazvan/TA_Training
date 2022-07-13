@@ -16,7 +16,7 @@ Feature: Feature to test date pickers and differences between two dates
     Then I validate the result on the page "including" the end date
     Examples:
       | Start Day | Start Month | Start year | End Day | End Month | End year |
-      | 16        | November    | 2022       |13       |January    |2023      |
+      | 16        | November    | 2022       | 13      | January   | 2023     |
 
   @Scenario2 @Web
   Scenario Outline: This is a scenario outline that tests date pickers and differences between two dates excluding the end date
@@ -29,7 +29,7 @@ Feature: Feature to test date pickers and differences between two dates
     Then I validate the result on the page "excluding" the end date
     Examples:
       | Start Day | Start Month | Start year | End Day | End Month | End year |
-      | 16        | November    | 2022       |13       |January    |2023      |
+      | 16        | November    | 2022       | 13      | January   | 2023     |
 
   @Scenario3 @Web
   Scenario Outline: This is a scenario outline that tests date pickers and differences between two dates including the end date and excluding weekends
@@ -44,7 +44,7 @@ Feature: Feature to test date pickers and differences between two dates
     Then I validate the result on the page "including" the end date and excluding the weekends
     Examples:
       | Start Day | Start Month | Start year | End Day | End Month | End year |
-      | 16        | November    | 2022       |13       |January    |2023      |
+      | 16        | November    | 2022       | 13      | January   | 2023     |
 
   @Scenario4 @Web
   Scenario Outline: This is a scenario outline that tests date pickers and differences between two dates including the end date and only the public holidays
@@ -58,7 +58,7 @@ Feature: Feature to test date pickers and differences between two dates
     Then I validate the result on the page including the end date and the public holidays
     Examples:
       | Start Day | Start Month | Start year | End Day | End Month | End year |
-      | 16        | November    | 2022       |13       |January    |2023      |
+      | 16        | November    | 2022       | 13      | January   | 2023     |
 
   @Scenario5 @Web
   Scenario Outline: This is a scenario outline that tests date pickers and differences between two dates including the end date and only the weekends
@@ -72,4 +72,4 @@ Feature: Feature to test date pickers and differences between two dates
     Then I validate the result on the page "including" the end date and only the weekends
     Examples:
       | Start Day | Start Month | Start year | End Day | End Month | End year |
-      | 16        | November    | 2022       |13       |January    |2023      |
+      | 16        | November    | 2022       | 13      | January   | 2023     |
