@@ -15,6 +15,6 @@ public class EmptyTemplatePage extends PageObject {
     @FindBy(xpath = "//div //a/h3")
     public List<WebElementFacade> resultsTitles;
 
-    @FindBy(xpath = "//*[contains(text(),'I agree')]")
+    @FindBy(xpath = "//*[contains(text(),'Accept all')]")
     public WebElementFacade acceptPrivacyBtn;
 }
