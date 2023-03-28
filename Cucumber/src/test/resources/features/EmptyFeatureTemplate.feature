@@ -62,3 +62,12 @@ Feature: Empty feature scenario for learning
       |8   |Iuvaret7	|Apeirian7	|Adipisci7	 |Definiebas7	|Consequuntur7	|Phaedrum7	|edit delete ||
       |9   |Iuvaret8	|Apeirian8	|Adipisci8	 |Definiebas8	|Consequuntur8	|Phaedrum8	|edit delete ||
       |10  |Iuvaret9	|Apeirian9	|Adipisci9	 |Definiebas9	|Consequuntur9	|Phaedrum9	|edit delete ||
+
+  Scenario Outline: Timetracking
+    Given I open the browser to "https://timetracking.nttdata.ro"
+    When I log in with "<Username>" and "<Password>"
+    And I select the dates as "<Day>" and "<Month>"
+    Then I fill in the unallocated days
+    Examples:
+    |Username|Password|Day|Month|
+    |ebs\razvanionel.rosca|PasswordEmea2021!@|02|January|
